@@ -73,7 +73,21 @@ Patient.init(
             isUnique: false,
             allowNull: false,
         },
+        biologicalSex: {
+            type:DataTypes.STRING,
+            allowNull:false,
+        },
         maritalStatus: {
+            type: DataTypes.STRING,
+            isUnique: false,
+            allowNull: true,
+        },
+        ethnicity: {
+            type: DataTypes.STRING,
+            isUnique: false,
+            allowNull: true,
+        },
+        occupation: {
             type: DataTypes.STRING,
             isUnique: false,
             allowNull: true,
