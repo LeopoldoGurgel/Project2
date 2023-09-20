@@ -1,0 +1,25 @@
+<div class="d-flex flex-row justify-content-between">
+    <img src=""> {{!-- patient profile img --}}
+    <p id="general-info">Patient General Info</p>
+</div>
+{{#if isDoc}}
+<button id="doc-edit">Edit any field</button>
+{{#else}}
+<button id="gen-edit">Edit general info</button>
+{{/if}}
+<hr />
+
+{{!-- Appointment info cards. With template card --}}
+<div>
+    <ul>
+        {{!-- list of conditions --}}
+    </ul>
+    <ul>
+        {{!-- Appointment info cards --}}
+        <li>
+            <h2>Condition</h2>
+            <p>date</p>
+            <p>doctor's notes</p>
+        </li>
+    </ul>
+</div>

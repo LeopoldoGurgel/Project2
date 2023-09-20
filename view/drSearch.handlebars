@@ -1,0 +1,18 @@
+
+        {{!-- local search buttons --}} 
+    <nav class="d-flex flex-row justify-content-end">
+        <button id="search-name">Search by Name</button>
+        <button id="search-appt">Search by Appointment</button>
+        <button id="search-age">Search by Age</button>
+        <button id="search-condition">Search by Condition</button>
+        <button id="search-clinic">Search by Clinic/Zoom</button>
+    </nav>
+
+{{!-- Add search results here. A template search result is given --}}
+<ul id="search-results">
+    <li  class="d-flex flex-row justify-content-between">
+        <img src="" alt="patient image">
+        <p>Info searched for</p>
+        <button>More Info</button>  {{!-- Add a data-index attribute to track the different buttons --}}
+    </li>
+</ul>
