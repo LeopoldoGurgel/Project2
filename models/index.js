@@ -1,3 +1,4 @@
+
 // create reations and models
 const Patient = require('./Patient');
 const Record = require('./Record');
@@ -32,3 +33,4 @@ Patient.belongsTo(Doctor, {
 });
 
 module.exports = { Patient, Record, Doctor, Appointment };
+
