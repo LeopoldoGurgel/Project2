@@ -1,3 +1,50 @@
 [
-    
+    {
+      "appointmentDate": "2023-11-15",
+      "appointmentTime": "3pm",
+      "reason": "backpain",
+      "anamnsesis": "Patient complains about persistent backpain started about a year ago. It is primarily located on lombar region and it gets works after long and hard days of work as a carpenter. The patient deescribes it as very intense (8 out of 10. There is no history of recent trauma.",
+      "physical_exam": "Nothing to keep note about vital signs, cardiorrespiratory, digestive or endocrine systems. Lasegue test is positive on the right.",
+      "initial_diagnosis": "lumbar hernia",
+      "tests_needed": "MRI",
+      "prescription": "Ibuprofen 400mg twice a day for 5 days.",
+      "orientation": "10 days of rest from work. Avoid lifting heavy weights.",
+      "next_appointment": "2023-12-15"
+    },
+    {
+      "appointmentDate": "2023-11-15",
+      "appointmentTime": "4pm",
+      "reason": "red urine",
+      "anamnsesis": "Patient complains about a strange reddish urine color since about a month ago. They also refer a burning pain whenever they urinate. There is no history of recent trauma.",
+      "physical_exam": "Nothing to keep note about vital signs, cardiorrespiratory, digestive or endocrine systems. Patient complains of pain when lower abdominal region is pressed. Giordanno test negative.",
+      "initial_diagnosis": "Urinary tract infecction",
+      "tests_needed": "uranalysis",
+      "prescription": "ciprofloxacyn 500mg twice a day for 7 days.",
+      "orientation": "Drink at least 2 liters of water everyday.",
+      "next_appointment": "2023-12-15"
+    },
+    {
+      "appointmentDate": "2023-11-15",
+      "appointmentTime": "5pm",
+      "reason": "strange skin spot",
+      "anamnsesis": "Patient describes a small skin spot of dark color and irregular borders on they soulder noticed about 2 weeks ago. Does not hurt, but it's completely numb.",
+      "physical_exam": "Nothing to keep note about vital signs, cardiorrespiratory, digestive or endocrine systems. Dark, irregular spot on patient left shoulder. Noticed nodule on patients left armpit.",
+      "initial_diagnosis": "melanoma?",
+      "tests_needed": "biopsy and PET scan",
+      "prescription": " ",
+      "orientation": "Come back as soon as you have your tests results.",
+      "next_appointment": "2023-12-15"
+    },
+    {
+      "appointmentDate": "2023-11-15",
+      "appointmentTime": "6pm",
+      "reason": "occasional faints",
+      "anamnsesis": "Patient describes ocasional faints sarted 2 days ago. It is followed by high heart rate and the feeling of bumps on their chest.",
+      "physical_exam": "Hearth rate: 160bpm, blood pressure: 140/100mmHg. In cardiac auscultation, its noticed an irregular heart rhythm with two sounds (S1 and S2) and normal phonation, without murmurs. Nothing else to bo noted",
+      "initial_diagnosis": "atrial fybrilation",
+      "tests_needed": "EKG",
+      "prescription": " ",
+      "orientation": "Come back in about 20 minutes with the EKG results. Follow the nurse to run the test. Further treatments then.",
+      "next_appointment": "2023-12-15"
+    }
   ]
