@@ -1,1 +1,1 @@
-// create reations and models
+// create relations and models
