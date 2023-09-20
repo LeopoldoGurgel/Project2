@@ -1,3 +1,5 @@
+// this is a template logout script. It needs to be modified
+
 const logout = async () => {
   const response = await fetch('/api/users/logout', {
     method: 'POST',

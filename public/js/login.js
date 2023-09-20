@@ -1,3 +1,5 @@
+// this is a template login script. Needs to be modified
+
 const loginFormHandler = async (event) => {
   event.preventDefault();
 
