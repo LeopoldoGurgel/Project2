@@ -1,10 +1,9 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
-const { default: isEmail } = require('validator/lib/isEmail');
 
-class Patient extends Model { }
+class Doctor extends Model { }
 
-Patient.init(
+Doctor.init(
     {
         id: {
             type: DataTypes.INTEGER,
@@ -12,7 +11,7 @@ Patient.init(
             primaryKey: true,
             autoIncrement: true,
         },
-        fullName: {
+       fullName: {
             type: DataTypes.STRING,
             allowNull: false,
         },
@@ -60,7 +59,8 @@ Patient.init(
                 isNumeric: true
             }
         },
-        patientAge: {
+       
+      emergencyContactNumber: {
             type: DataTypes.INTEGER,
             isUnique: false,
             allowNull: false,
@@ -68,31 +68,7 @@ Patient.init(
                 isNumeric: true
             }
         },
-        patientGender: {
-            type: DataTypes.STRING,
-            isUnique: false,
-            allowNull: false,
-        },
-        maritalStatus: {
-            type: DataTypes.STRING,
-            isUnique: false,
-            allowNull: true,
-        },
-        allergies: {
-            type: DataTypes.STRING,
-            isUnique: false,
-            allowNull: true,
-        },
-
-        emergencyContactNumber: {
-            type: DataTypes.INTEGER,
-            isUnique: false,
-            allowNull: false,
-            validate: {
-                isNumeric: true
-            }
-        },
-        emergencyContactfullName: {
+        emergencyContactFullName: {
             type: DataTypes.STRING,
             allowNull: false,
         },
@@ -101,8 +77,6 @@ Patient.init(
             allowNull: false,
             isUnique: true,
         },
-
-
     },
     {
         hooks: {
@@ -121,8 +95,8 @@ Patient.init(
         timestamps: false,
         freezeTableName: true,
         underscored: true,
-        modelName: 'patient',
+        modelName: 'doctor',
     }
 );
 
-module.exports = Patient;
+module.exports = Doctor;
