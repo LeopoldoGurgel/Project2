@@ -1,0 +1,50 @@
+[
+    {
+        "fullName": "Sara Jones",
+        "preferedName": "Sara",
+        "username": "sjones123",
+        "password": "1234",
+        "email": "sjones@abc.com",
+        "DOB": "2020/01/04",
+        "address": "45 Main St. Toronto",
+        "phoneNumber": "6477891234",
+        "patientAge": "23",
+        "patientGender": "female",
+        "maritalStatus": "single",
+        "allergies": "",
+        "emergencyContactfullName": "George Jones",
+        "emergencyContactNumber": "6478901245"
+    },
+    {
+        "fullName": "Henry Rogers",
+        "preferedName": "Henry",
+        "username": "hrogers567",
+        "password": "3456",
+        "email": "hrogers@ert.com",
+        "DOB": "1975/04/23",
+        "address": "89 Queen St., Toronto",
+        "phoneNumber": "6479874367",
+        "patientAge": "48",
+        "patientGender": "male",
+        "maritalStatus": "married",
+        "allergies": "",
+        "emergencyContactfullName": "Mary Rogers",
+        "emergencyContactNumber": "6478764378"
+    }, 
+    {
+        "fullName": "Igor Schmit",
+        "preferedName": "Iggy",
+        "username": "iggys345",
+        "password": "5678",
+        "email": "ischmit@nhj.com",
+        "DOB": "2004/06/22",
+        "address": "54 First St., Toronto",
+        "phoneNumber": "6477651298",
+        "patientAge": "21",
+        "patientGender": "male",
+        "maritalStatus": "single",
+        "allergies": "penicillin",
+        "emergencyContactfullName": "Ivan Schmit",
+        "emergencyContactNumber": "6477653789"
+    }
+]
