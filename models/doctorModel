@@ -2,21 +2,21 @@ const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 const { default: isEmail } = require('validator/lib/isEmail');
 
-class Patient extends Model { }
+class Doctor extends Model { }
 
-Patient.init(
+Doctor.init(
     {
-        id: {
+        drId: {
             type: DataTypes.INTEGER,
             allowNull: false,
             primaryKey: true,
             autoIncrement: true,
         },
-        fullName: {
+       fullName: {
             type: DataTypes.STRING,
             allowNull: false,
         },
-        preferedName: {
+        drPreferedName: {
             type: DataTypes.STRING,
             allowNull: false,
         },
@@ -60,31 +60,8 @@ Patient.init(
                 isNumeric: true
             }
         },
-        patientAge: {
-            type: DataTypes.INTEGER,
-            isUnique: false,
-            allowNull: false,
-            validate: {
-                isNumeric: true
-            }
-        },
-        patientGender: {
-            type: DataTypes.STRING,
-            isUnique: false,
-            allowNull: false,
-        },
-        maritalStatus: {
-            type: DataTypes.STRING,
-            isUnique: false,
-            allowNull: true,
-        },
-        allergies: {
-            type: DataTypes.STRING,
-            isUnique: false,
-            allowNull: true,
-        },
-
-        emergencyContactNumber: {
+       
+      emergencyContactNumber: {
             type: DataTypes.INTEGER,
             isUnique: false,
             allowNull: false,
@@ -96,7 +73,7 @@ Patient.init(
             type: DataTypes.STRING,
             allowNull: false,
         },
-        loginId: {
+        drLoginId: {
             type: DataTypes.INTEGER,
             allowNull: false,
             isUnique: true,
@@ -105,24 +82,12 @@ Patient.init(
 
     },
     {
-        hooks: {
-            beforeCreate: async (newUserData) => {
-                newUserData.password = await bcrypt.hash(newUserData.password, 10);
-                return newUserData;
-            },
-            beforeUpdate: async (updatedUserData) => {
-                if (updatedUserData.password) {
-                    updatedUserData.password = await bcrypt.hash(updatedUserData.password, 10);
-                }
-                return updatedUserData;
-            },
-        },
         sequelize,
         timestamps: false,
         freezeTableName: true,
         underscored: true,
-        modelName: 'patient',
+        modelName: 'doctor',
     }
 );
 
-module.exports = Patient;
+module.exports = Doctor;

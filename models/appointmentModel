@@ -1,0 +1,59 @@
+const { Model, DataTypes } = require('sequelize');
+const sequelize = require('../config/connection');
+const { default: isEmail } = require('validator/lib/isEmail');
+
+class Appointment extends Model { }
+
+Appointment.init(
+    {
+        appointmentId: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            primaryKey: true,
+            autoIncrement: true,
+        },
+        appointmentDate: {
+            type: DataTypes.DATE,
+            allowNull: false,
+
+            validate: {
+                isDate: true
+            }
+        },
+        appointmentTime: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
+        drPreferedName: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
+        preferedName: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
+
+        phoneNumber: {
+            type: DataTypes.INTEGER,
+            isUnique: false,
+            allowNull: false,
+            validate: {
+                isNumeric: true
+            }
+        },
+        reason: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        }
+
+    },
+    {
+        sequelize,
+        timestamps: false,
+        freezeTableName: true,
+        underscored: true,
+        modelName: 'doctor',
+    }
+);
+
+module.exports = Doctor;
