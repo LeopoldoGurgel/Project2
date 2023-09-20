@@ -1,7 +1,27 @@
 [
     {
-        "drFullName":"Robert Burger",
-        "drPreferredName": "Rob",
-        ""
+        "fullName": "Robert Johnston",
+        "phoneName": "Rob",
+        "username": "robjohnston234",
+        "password": "pass122",
+        "email": "rjohnston@dr456.com",
+        "DOB": "1999/04/23",
+        "address": "76 Church St. Toronto",
+        "phoneNumber": "3457456797",
+        "emergencyContactNumber": "7863641647",
+        "emergencyContactFullName": "Liz Johnston"
+    },
+
+    {
+        "fullName": "Trish Beaumount",
+        "phoneName": "Trish",
+        "username": "tbeaumount34",
+        "password": "4576",
+        "email": "tbeaumount@abc.com",
+        "DOB": "1995/09/23",
+        "address": "1234 King St. Toronto",
+        "phoneNumber": "4167841935",
+        "emergencyContactNumber": "4168973056",
+        "emergencyContactFullName": "Sophie Schneider"
     }
 ]
