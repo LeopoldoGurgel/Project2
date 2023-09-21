@@ -7,16 +7,16 @@ const Appointment = require('./Appointment')
 
 Patient.hasOne(Record, {
   foreignKey: 'patient_id',
-  onDelete: 'SETNULL'
+  onDelete: 'SET NULL'
 });
 
 Record.belongsTo(Patient, {
-  foreignKey: 'SETNULL'
+  foreignKey: 'SET NULL'
 });
 
 Record.hasMany(Appointment, {
     foreignKey: 'record_id',
-    onDelete: 'SETNULL'
+    onDelete: 'SET NULL'
 });
 
 Appointment.belongsTo(Record, {
@@ -25,7 +25,7 @@ Appointment.belongsTo(Record, {
 
 Doctor.hasMany(Patient, {
     foreignKey: 'doctor_id',
-    onDelete: 'SETNULL'
+    onDelete: 'SET NULL'
 });
 
 Patient.belongsTo(Doctor, {
