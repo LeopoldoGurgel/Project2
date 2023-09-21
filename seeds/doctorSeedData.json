@@ -9,7 +9,8 @@
         "address": "76 Church St. Toronto",
         "phoneNumber": "3457456797",
         "emergencyContactNumber": "7863641647",
-        "emergencyContactFullName": "Liz Johnston"
+        "emergencyContactFullName": "Liz Johnston",
+        "isactive": true
     },
 
     {
@@ -23,6 +24,7 @@
         "address": "1234 King St. Toronto",
         "phoneNumber": "4167841935",
         "emergencyContactNumber": "4168973056",
-        "emergencyContactFullName": "Sophie Schneider"
+        "emergencyContactFullName": "Sophie Schneider",
+        "isactive": true
     }
 ]

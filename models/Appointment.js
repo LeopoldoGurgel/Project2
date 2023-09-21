@@ -11,19 +11,9 @@ Appointment.init(
             primaryKey: true,
             autoIncrement: true,
         },
-        record_id: {
-            type: DataTypes.INTEGER,
-            references: {
-                model: 'record',
-                key: 'id'
-            },
-            onDelete: 'RESTRICT',
-            onUpdate: 'CASCADE',
-        },
         appointmentDate: {
             type: DataTypes.DATE,
             allowNull: false,
-
             validate: {
                 isDate: true
             }
@@ -32,46 +22,34 @@ Appointment.init(
             type: DataTypes.STRING,
             allowNull: false,
         },
-        drPreferedName: {
-            type: DataTypes.STRING,
-            allowNull: false,
-            references: {
-                model: "doctor",
-                key: "preferedName"
-            },
-            onDelete: 'RESTRICT',
-            onUpdate: 'CASCADE',
-        },
-        preferedName: {
-            type: DataTypes.STRING,
-            allowNull: false,
-            references: {
-                model: "patient",
-                key: "preferedName"
-            },
-            onDelete: 'RESTRICT',
-            onUpdate: 'CASCADE',
-        },
-        phoneNumber: {
-            type: DataTypes.INTEGER,
-            isUnique: false,
-            allowNull: false,
-            validate: {
-                isNumeric: true
-            },
-            references: {
-                model: "patient",
-                key: "phoneNumber"
-            },
-            onDelete: 'RESTRICT',
-            onUpdate: 'CASCADE',
-        },
-        anamnesis: {
+        reason: {
             type: DataTypes.STRING,
             allowNull: false
         },
+        doctor_id: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            unique: false,
+            references: {
+                model: 'doctor',
+                key: 'id'
+            }
+        },
+        patient_id: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            unique: false,
+            references: {
+                model: 'patient',
+                key: 'id'
+            }
+        },
+        anamnesis: {
+            type: DataTypes.TEXT('medium'),
+            allowNull: false,
+        },
         physical_exam: {
-            type: DataTypes.STRING,
+            type: DataTypes.TEXT('medium'),
             allowNull: false
         },
         initial_diagnosis: {
@@ -79,19 +57,16 @@ Appointment.init(
             allowNull: false
         },
         tests_needed: {
-            type: DataTypes.STRING,
+            type: DataTypes.TEXT("tiny"),
         },
         prescription: {
-            type: DataTypes.STRING,
+            type: DataTypes.TEXT("tiny"),
         },
         orientation: {
-            type: DataTypes.STRING,
+            type: DataTypes.TEXT('medium'),
         },
         next_appointment: {
             type: DataTypes.DATE,
-        },
-        isactive: {
-            type: DataTypes.BOOLEAN
         }
     },
     {
@@ -99,7 +74,13 @@ Appointment.init(
         timestamps: false,
         freezeTableName: true,
         underscored: true,
-        modelName: 'doctor',
+        modelName: 'appointment',
+        indexes: [
+            {
+              unique: false,
+              fields: ['doctor_id', 'patient_id']
+            }
+        ]
     }
 );
 
