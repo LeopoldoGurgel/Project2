@@ -16,7 +16,9 @@ Appointment.init(
             references: {
                 model: 'record',
                 key: 'id'
-            }
+            },
+            onDelete: 'RESTRICT',
+            onUpdate: 'CASCADE',
         },
         appointmentDate: {
             type: DataTypes.DATE,
@@ -35,8 +37,10 @@ Appointment.init(
             allowNull: false,
             references: {
                 model: "doctor",
-                key: "drPreferedName"
-            }
+                key: "preferedName"
+            },
+            onDelete: 'RESTRICT',
+            onUpdate: 'CASCADE',
         },
         preferedName: {
             type: DataTypes.STRING,
@@ -44,7 +48,9 @@ Appointment.init(
             references: {
                 model: "patient",
                 key: "preferedName"
-            }
+            },
+            onDelete: 'RESTRICT',
+            onUpdate: 'CASCADE',
         },
         phoneNumber: {
             type: DataTypes.INTEGER,
@@ -56,7 +62,9 @@ Appointment.init(
             references: {
                 model: "patient",
                 key: "phoneNumber"
-            }
+            },
+            onDelete: 'RESTRICT',
+            onUpdate: 'CASCADE',
         },
         anamnesis: {
             type: DataTypes.STRING,
@@ -81,6 +89,9 @@ Appointment.init(
         },
         next_appointment: {
             type: DataTypes.DATE,
+        },
+        isactive: {
+            type: DataTypes.BOOLEAN
         }
     },
     {

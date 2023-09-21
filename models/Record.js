@@ -16,14 +16,18 @@ Record.init(
             references: {
                 model: 'doctor',
                 key: 'id'
-            }
+            },
+            onDelete: 'RESTRICT',
+            onUpdate: 'CASCADE',
         },
         patient_id: {
             type: DataTypes.INTEGER,
             references: {
                 model: 'patient',
                 key: 'id'
-            }
+            },
+            onDelete: 'RESTRICT',
+            onUpdate: 'CASCADE',
         },
     },
     {

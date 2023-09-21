@@ -11,6 +11,15 @@ Patient.init(
             primaryKey: true,
             autoIncrement: true,
         },
+        doctor_id: {
+            type: DataTypes.INTEGER,
+            references: {
+              model: 'doctor',
+              key: 'id',
+            },
+            onDelete: 'RESTRICT',
+            onUpdate: 'CASCADE',
+        },
         fullName: {
             type: DataTypes.STRING,
             allowNull: false,
@@ -109,11 +118,10 @@ Patient.init(
             type: DataTypes.STRING,
             allowNull: false,
         },
-        loginId: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-            isUnique: true,
-        },
+        isactive: {
+            type: DataTypes.BOOLEAN,
+            defaultValue: true
+        }
     },
     {
         hooks: {

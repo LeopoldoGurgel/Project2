@@ -58,9 +58,8 @@ Doctor.init(
             validate: {
                 isNumeric: true
             }
-        },
-       
-      emergencyContactNumber: {
+        },       
+        emergencyContactNumber: {
             type: DataTypes.INTEGER,
             isUnique: false,
             allowNull: false,
@@ -72,11 +71,10 @@ Doctor.init(
             type: DataTypes.STRING,
             allowNull: false,
         },
-        loginId: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-            isUnique: true,
-        },
+        isActive: {
+            type: DataTypes.BOOLEAN,
+            defaultValue: true
+        }
     },
     {
         hooks: {
