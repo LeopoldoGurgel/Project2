@@ -11,6 +11,15 @@ Patient.init(
             primaryKey: true,
             autoIncrement: true,
         },
+        doctor_id: {
+            type: DataTypes.INTEGER,
+            references: {
+              model: 'Doctor',
+              key: 'id',
+            },
+            onDelete: 'SET NULL',
+            onUpdate: 'CASCADE',
+        },
         fullName: {
             type: DataTypes.STRING,
             allowNull: false,
