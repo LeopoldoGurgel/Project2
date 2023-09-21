@@ -11,7 +11,7 @@ Doctor.init(
             primaryKey: true,
             autoIncrement: true,
         },
-       fullName: {
+        fullName: {
             type: DataTypes.STRING,
 
         },
@@ -40,29 +40,21 @@ Doctor.init(
         },
         DOB: {
             type: DataTypes.DATE,
-            isUnique: false,
-
             validate: {
                 isDate: true
             }
         },
         address: {
             type: DataTypes.STRING,
-            isUnique: false,
-  
         },
         phoneNumber: {
-            type: DataTypes.INTEGER,
-            isUnique: false,
-
+            type: DataTypes.STRING,
             validate: {
                 isNumeric: true
             }
         },       
         emergencyContactNumber: {
-            type: DataTypes.INTEGER,
-            isUnique: false,
-
+            type: DataTypes.STRING,
             validate: {
                 isNumeric: true
             }
