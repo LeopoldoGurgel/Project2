@@ -17,8 +17,6 @@ Appointment.init(
                 model: 'record',
                 key: 'id'
             },
-            onDelete: 'RESTRICT',
-            onUpdate: 'CASCADE',
         },
         appointmentDate: {
             type: DataTypes.DATE,
@@ -39,8 +37,6 @@ Appointment.init(
                 model: "doctor",
                 key: "preferedName"
             },
-            onDelete: 'RESTRICT',
-            onUpdate: 'CASCADE',
         },
         preferedName: {
             type: DataTypes.STRING,
@@ -49,8 +45,6 @@ Appointment.init(
                 model: "patient",
                 key: "preferedName"
             },
-            onDelete: 'RESTRICT',
-            onUpdate: 'CASCADE',
         },
         phoneNumber: {
             type: DataTypes.INTEGER,
@@ -63,8 +57,6 @@ Appointment.init(
                 model: "patient",
                 key: "phoneNumber"
             },
-            onDelete: 'RESTRICT',
-            onUpdate: 'CASCADE',
         },
         anamnesis: {
             type: DataTypes.STRING,
@@ -99,7 +91,7 @@ Appointment.init(
         timestamps: false,
         freezeTableName: true,
         underscored: true,
-        modelName: 'doctor',
+        modelName: 'appointment',
     }
 );
 

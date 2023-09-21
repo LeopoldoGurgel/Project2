@@ -13,11 +13,11 @@ Doctor.init(
         },
        fullName: {
             type: DataTypes.STRING,
-            allowNull: false,
+
         },
         preferedName: {
             type: DataTypes.STRING,
-            allowNull: false,
+
         },
         username: {
             type: DataTypes.STRING,
@@ -41,7 +41,7 @@ Doctor.init(
         DOB: {
             type: DataTypes.DATE,
             isUnique: false,
-            allowNull: false,
+
             validate: {
                 isDate: true
             }
@@ -49,12 +49,12 @@ Doctor.init(
         address: {
             type: DataTypes.STRING,
             isUnique: false,
-            allowNull: false,
+  
         },
         phoneNumber: {
             type: DataTypes.INTEGER,
             isUnique: false,
-            allowNull: false,
+
             validate: {
                 isNumeric: true
             }
@@ -62,14 +62,13 @@ Doctor.init(
         emergencyContactNumber: {
             type: DataTypes.INTEGER,
             isUnique: false,
-            allowNull: false,
+
             validate: {
                 isNumeric: true
             }
         },
         emergencyContactFullName: {
             type: DataTypes.STRING,
-            allowNull: false,
         },
         isActive: {
             type: DataTypes.BOOLEAN,

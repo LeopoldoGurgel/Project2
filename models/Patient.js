@@ -16,17 +16,15 @@ Patient.init(
             references: {
               model: 'doctor',
               key: 'id',
-            },
-            onDelete: 'RESTRICT',
-            onUpdate: 'CASCADE',
+            }
         },
         fullName: {
             type: DataTypes.STRING,
-            allowNull: false,
+
         },
         preferedName: {
             type: DataTypes.STRING,
-            allowNull: false,
+ 
         },
         username: {
             type: DataTypes.STRING,
@@ -51,7 +49,7 @@ Patient.init(
         DOB: {
             type: DataTypes.DATE,
             isUnique: false,
-            allowNull: false,
+
             validate: {
                 isDate: true
             }
@@ -59,12 +57,12 @@ Patient.init(
         address: {
             type: DataTypes.STRING,
             isUnique: false,
-            allowNull: false,
+
         },
         phoneNumber: {
             type: DataTypes.INTEGER,
             isUnique: false,
-            allowNull: false,
+
             validate: {
                 isNumeric: true
             }
@@ -72,7 +70,7 @@ Patient.init(
         age: {
             type: DataTypes.INTEGER,
             isUnique: false,
-            allowNull: false,
+
             validate: {
                 isNumeric: true
             }
@@ -80,43 +78,43 @@ Patient.init(
         gender: {
             type: DataTypes.STRING,
             isUnique: false,
-            allowNull: false,
+
         },
         biologicalSex: {
             type:DataTypes.STRING,
-            allowNull:false,
+
         },
         maritalStatus: {
             type: DataTypes.STRING,
             isUnique: false,
-            allowNull: true,
+
         },
         ethnicity: {
             type: DataTypes.STRING,
             isUnique: false,
-            allowNull: true,
+
         },
         occupation: {
             type: DataTypes.STRING,
             isUnique: false,
-            allowNull: true,
+
         },
         allergies: {
             type: DataTypes.STRING,
             isUnique: false,
-            allowNull: true,
+
         },
         emergencyContactNumber: {
             type: DataTypes.INTEGER,
             isUnique: false,
-            allowNull: false,
+
             validate: {
                 isNumeric: true
             }
         },
         emergencyContactfullName: {
             type: DataTypes.STRING,
-            allowNull: false,
+
         },
         isactive: {
             type: DataTypes.BOOLEAN,
