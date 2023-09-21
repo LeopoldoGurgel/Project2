@@ -12,7 +12,7 @@ Appointment.init(
             autoIncrement: true,
         },
         record_id: {
-            type: DataTypes.integer,
+            type: DataTypes.INTEGER,
             references: {
                 model: 'record',
                 key: 'id'
@@ -58,11 +58,30 @@ Appointment.init(
                 key: "phoneNumber"
             }
         },
-        reason: {
+        anamnesis: {
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: false
+        },
+        physical_exam: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        initial_diagnosis: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        tests_needed: {
+            type: DataTypes.STRING,
+        },
+        prescription: {
+            type: DataTypes.STRING,
+        },
+        orientation: {
+            type: DataTypes.STRING,
+        },
+        next_appointment: {
+            type: DataTypes.DATE,
         }
-
     },
     {
         sequelize,
