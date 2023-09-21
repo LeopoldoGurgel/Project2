@@ -12,7 +12,7 @@ Appointment.init(
             autoIncrement: true,
         },
         record_id: {
-            type: DataTypes.integer,
+            type: DataTypes.INTEGER,
             references: {
                 model: 'record',
                 key: 'id'
