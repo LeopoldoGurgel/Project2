@@ -1,36 +1,36 @@
 
 // create reations and models
 const Patient = require('./Patient');
-const Record = require('./Record');
 const Doctor = require('./Doctor');
 const Appointment = require('./Appointment')
 
-Patient.hasOne(Record, {
+Patient.hasMany(Appointment, {
   foreignKey: 'patient_id',
-  onDelete: 'SET NULL'
+  onDelete: 'RESTRICT'
 });
 
-Record.belongsTo(Patient, {
-  foreignKey: 'SET NULL'
+Appointment.belongsTo(Patient, {
+  foreignKey: 'patient_id'
 });
 
-Record.hasMany(Appointment, {
-    foreignKey: 'record_id',
-    onDelete: 'SET NULL'
+Doctor.hasMany(Appointment, {
+  foreignKey: 'doctor_id',
+  onDelete: 'RESTRICT'
 });
 
-Appointment.belongsTo(Record, {
-    foreignKey: 'record_id'
+Appointment.belongsTo(Doctor, {
+  foreignKey: 'doctor_id'
 });
 
-Doctor.hasMany(Patient, {
-    foreignKey: 'doctor_id',
-    onDelete: 'SET NULL'
+Doctor.belongsToMany(Patient, {
+  through: "appointment",
+  foreignKey: 'doctor_id'
 });
 
-Patient.belongsTo(Doctor, {
-    foreignKey: 'doctor_id'
-});
+Patient.belongsToMany(Doctor, {
+  through: 'appointment',
+  foreignKey: 'patient_id'
+})
 
-module.exports = { Patient, Record, Doctor, Appointment };
+module.exports = { Patient, Doctor, Appointment };
 
