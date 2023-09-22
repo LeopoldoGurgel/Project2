@@ -13,7 +13,7 @@ router.get('/doctor', async (req, res) => {
 
     // Pass serialized data and session flag into template
     // in this case doctors will be an array.
-    res.render('doctorslist', { 
+    res.render('docinfo', { 
       doctors});
   } catch (err) {
     res.status(500).json(err);
