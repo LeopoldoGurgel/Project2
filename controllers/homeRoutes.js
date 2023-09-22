@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Doctor, Patient, Record, Appointment } = require('../models');
+const { Doctor, Patient, User, Appointment } = require('../models');
 const withAuth = require('../utils/auth');
 
 
@@ -58,9 +58,9 @@ router.get('/', (req, res) => {
 // accessable only by 1 patient and their doctor
 router.get('/patientInfo', (req, res) => {
   // if the user is a doctor set true
-  let isDoc = true;
+  // let isDoc = true;
   res.render('patientInfo', {
-    isDoc,
+    // isDoc,
   });
 });
 
