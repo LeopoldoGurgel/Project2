@@ -3,14 +3,6 @@ const { Doctor, Patient, Record, Appointment } = require('../models');
 const withAuth = require('../utils/auth');
 
 
-router.get(`/`, (req,res) => {
- try{
-    res.render('homepage')
-  }catch(err){
-    res.status(500).json(err)
-  }
-})
-
 router.get('/doctor', async (req, res) => {
   try {
     // Get all projects and JOIN with user data
@@ -48,5 +40,43 @@ router.get('/login', (req, res) => {
 
   res.render('login');
 });
+
+// ------------------------------------------------
+// web page basic routing
+// homepage
+// open route, no security
+router.get('/', (req, res) => {
+   try{
+      res.render('homepage')
+    }catch(err){
+      res.status(500).json(err)
+    }
+});
+
+// patient Info page
+// accessable only by 1 patient and their doctor
+router.get('/patientInfo', (req, res) => {
+  // if the user is a doctor set true
+  let isDoc = true;
+  res.render('patientInfo', {
+    isDoc,
+  });
+});
+
+// dr search page
+// accessable only by the doctor
+// use middleware 'authDr'
+router.get('/drSearch', (req, res) => {
+  res.render('drSearch')
+});
+
+// add appointment
+// accessable only by the doctor
+router.get('/addappt', (req, res) => {
+  res.render('addappt')
+});
+
+
+
 
 module.exports = router;
