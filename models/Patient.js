@@ -5,11 +5,20 @@ class Patient extends Model { }
 
 Patient.init(
     {
-        id: {
+        user_id: {
             type: DataTypes.INTEGER,
-            allowNull: false,
-            primaryKey: true,
-            autoIncrement: true,
+            references: {
+                model: 'user',
+                key: 'id'
+            }
+        },
+        is_doctor: {
+            type: DataTypes.BOOLEAN,
+            references:{
+                model: 'user',
+                key: 'isDoctor'
+            },
+            defaultValue: false
         },
         fullName: {
             type: DataTypes.STRING,
