@@ -1,7 +1,11 @@
-const router = require('express').Router();
 
-// import each route file in api
-// const userRoutes = require('./user-routes');
-// router.use('/users', userRoutes);
+//const patientRoutes = require('./patientRoutes.js')
+const userRoutes = require('./userRoutes.js')
+
+
+
+router.use('/user', userRoutes);
+//router.use('/patient', patientRoutes);
 
 module.exports = router;
+
