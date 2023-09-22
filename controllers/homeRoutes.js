@@ -12,7 +12,6 @@ router.get('/doctor', async (req, res) => {
     const doctors = doctorData.map((doctor) => doctor.get({ plain: true }));
 
     // Pass serialized data and session flag into template
-
     // in this case doctors will be an array.
     res.render('doctorslist', { 
       doctors});
