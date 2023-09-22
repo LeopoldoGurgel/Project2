@@ -14,20 +14,28 @@
 
 <body>
     <header>
-        <div class="d-flex flex-row justify-content-between">
-            <img src="./../public/img/logo-social.png" alt="placeholder logo image">
-            {{!-- logout button --}}
+        {{!-- global site nav buttons --}}
+        <nav class="row d-flex flex-row justify-content-between m-2">
+            <div>
+            <img class="logo" id="/" src="img/logo-social.png" alt="placeholder logo image">
+            </div>
+            <div>
+            {{!-- global buttons are blue, doc buttons green, and patient buttons yellow--}}
+            <button class="btn-primary" id="/doctorInfo">About the Doctor</button>
+            <button class="btn-primary" id="/clinicInfo">About the Clinic</button>
+            <button class="btn-primary" id="/newPatient">Become a Patient</button>
+            {{!-- varriable buttons --}}
+            {{#if isDoc}}
+            <button class="btn-success" id="/drSearch">Doctor Search</button>
+            <button class="btn-success" id="/addappt">Add Appointment</button>
+            {{/if}}
             {{#if logged_in}}
+
             <button id="logout">Logout</button>
             <script src="./js/userLogout.js"></script>
+
             {{/if}}
-        </div>
-        <hr />
-        {{!-- general site nav buttons --}}
-        <nav class="d-flex flex-row justify-content-end">
-            <button id="aboutDoc">About the Doctor</button>
-            <button id="aboutClinic">About the Clinic</button>
-            <button id="becPatient">Become a Patient</button>
+            </div>
         </nav>
         <hr />
     </header>
@@ -42,6 +50,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
+
 
     <script src="./js/userLogin.js"></script>
 
