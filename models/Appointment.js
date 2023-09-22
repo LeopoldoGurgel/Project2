@@ -74,13 +74,7 @@ Appointment.init(
         timestamps: false,
         freezeTableName: true,
         underscored: true,
-        modelName: 'appointment',
-        indexes: [
-            {
-              unique: false,
-              fields: ['doctor_id', 'patient_id']
-            }
-        ]
+        modelName: 'appointment'
     }
 );
 
