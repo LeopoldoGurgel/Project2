@@ -14,7 +14,7 @@ router.get('/doctor', async (req, res) => {
     // Pass serialized data and session flag into template
 
     // in this case doctors will be an array.
-    res.render('doctors', { 
+    res.render('doctorslist', { 
       doctors});
   } catch (err) {
     res.status(500).json(err);
@@ -27,7 +27,7 @@ router.get('/doctor/:id', async (req, res) => {
 
     const doctor = doctorData.get({ plain: true });
 
-    res.render('doctor', {...doctor});
+    res.render('doctorinfo', {...doctor});
   } catch (err) {
     res.status(500).json(err);
   }
