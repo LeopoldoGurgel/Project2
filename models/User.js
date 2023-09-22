@@ -9,9 +9,15 @@ User.init(
         type: DataTypes.INTEGER,
         autoIncrement: true,
         primaryKey: true
-    },
-    isDoctor: {
-        type: DataTypes.BOOLEAN
     }
+},
+{
+    sequelize,
+    timestamps: false,
+    freezeTableName: true,
+    underscored: true,
+    modelName: 'user',
 }
 )
+
+module.exports = User;

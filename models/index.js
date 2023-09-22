@@ -6,39 +6,39 @@ const Appointment = require('./Appointment');
 const User = require('./User');
 
 Patient.hasMany(Appointment, {
-  foreignKey: 'patient_id',
+  foreignKey: 'user_id',
   onDelete: 'RESTRICT'
 });
 
 Appointment.belongsTo(Patient, {
-  foreignKey: 'patient_id'
+  foreignKey: 'user_id'
 });
 
 Doctor.hasMany(Appointment, {
-  foreignKey: 'doctor_id',
+  foreignKey: 'user_id',
   onDelete: 'RESTRICT'
 });
 
 Appointment.belongsTo(Doctor, {
-  foreignKey: 'doctor_id'
+  foreignKey: 'user_id'
 });
 
 User.hasMany(Patient, {
-  foreignKey: 'user_id',
+  foreignKey: 'id',
   onDelete: "RESTRICT"
 });
 
-Patient.belongsTo('User', {
-  foreignKey: 'user_id'
+Patient.belongsTo(User, {
+  foreignKey: 'id'
 });
 
 User.hasMany(Doctor, {
-  foreignKey: 'user_id',
+  foreignKey: 'id',
   onDelete: "RESTRICT"
 });
 
-Doctor.belongsTo('User', {
-  foreignKey: 'user_id'
+Doctor.belongsTo(User, {
+  foreignKey: 'id'
 });
 
 // lines below throws errors when trying to run seed.js

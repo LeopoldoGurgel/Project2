@@ -7,17 +7,14 @@ Patient.init(
     {
         user_id: {
             type: DataTypes.INTEGER,
+            primaryKey: true,
             references: {
                 model: 'user',
                 key: 'id'
             }
         },
-        is_doctor: {
+        isDoctor: {
             type: DataTypes.BOOLEAN,
-            references:{
-                model: 'user',
-                key: 'isDoctor'
-            },
             defaultValue: false
         },
         fullName: {
