@@ -21,6 +21,7 @@ Doctor.init(
         },
         username: {
             type: DataTypes.STRING,
+            isUnique: true,
             allowNull: false,
         },
         password: {

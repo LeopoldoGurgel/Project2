@@ -22,15 +22,17 @@ Appointment.belongsTo(Doctor, {
   foreignKey: 'doctor_id'
 });
 
-Doctor.belongsToMany(Patient, {
-  through: "appointment",
-  foreignKey: 'doctor_id'
-});
+// lines below throws errors when trying to run seed.js
 
-Patient.belongsToMany(Doctor, {
-  through: 'appointment',
-  foreignKey: 'patient_id'
-})
+// Doctor.belongsToMany(Patient, {
+//   through: "appointment",
+//   foreignKey: 'doctor_id'
+// });
+
+// Patient.belongsToMany(Doctor, {
+//   through: 'appointment',
+//   foreignKey: 'patient_id'
+// })
 
 module.exports = { Patient, Doctor, Appointment };
 
