@@ -1,7 +1,7 @@
 [
     {
         "fullName": "Robert Johnston",
-        "phoneName": "Rob",
+        "preferredName": "Robert",
         "username": "robjohnston234",
         "password": "pass122",
         "email": "rjohnston@dr456.com",
@@ -9,11 +9,13 @@
         "address": "76 Church St. Toronto",
         "phoneNumber": "3457456797",
         "emergencyContactNumber": "7863641647",
-        "emergencyContactFullName": "Liz Johnston"
+        "emergencyContactFullName": "Liz Johnston",
+        "isactive": true
     },
 
     {
         "fullName": "Trish Beaumount",
+        "preferredName": "Trish",
         "phoneName": "Trish",
         "username": "tbeaumount34",
         "password": "4576",
@@ -22,6 +24,7 @@
         "address": "1234 King St. Toronto",
         "phoneNumber": "4167841935",
         "emergencyContactNumber": "4168973056",
-        "emergencyContactFullName": "Sophie Schneider"
+        "emergencyContactFullName": "Sophie Schneider",
+        "isactive": true
     }
 ]

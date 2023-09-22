@@ -1,7 +1,12 @@
+
+
 const router = require('express').Router();
 
-//add api routes here
-// const userRoutes = require('./user-routes');
-// router.use('/users', userRoutes);
+const patientRoutes = require('./patientRoutes.js')
+const userRoutes = require('./userRoutes.js')
+
+router.use('/user', userRoutes);
+router.use('/patient', patientRoutes);
 
 module.exports = router;
+

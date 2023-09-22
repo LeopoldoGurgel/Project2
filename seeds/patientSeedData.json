@@ -16,7 +16,8 @@
         "occupation": "teacher",
         "allergies": "",
         "emergencyContactfullName": "George Jones",
-        "emergencyContactNumber": "6478901245"
+        "emergencyContactNumber": "6478901245",
+        "isActive": true
     },
     {
         "fullName": "Henry Rogers",
@@ -35,7 +36,8 @@
         "occupation": "construction",
         "allergies": "",
         "emergencyContactfullName": "Mary Rogers",
-        "emergencyContactNumber": "6478764378"
+        "emergencyContactNumber": "6478764378",
+        "isActive": true
     }, 
     {
         "fullName": "Igor Schmit",
@@ -54,6 +56,7 @@
         "occupation": "technician",
         "allergies": "penicillin",
         "emergencyContactfullName": "Ivan Schmit",
-        "emergencyContactNumber": "6477653789"
+        "emergencyContactNumber": "6477653789",
+        "isActive": true
     }
 ]

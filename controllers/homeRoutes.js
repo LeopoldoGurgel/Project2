@@ -9,10 +9,11 @@ router.get('/doctor', async (req, res) => {
     const doctorData = await Doctor.findAll();
 
     // Serialize data so the template can read it
-    const doctors = doctorData.map((post) => doctor.get({ plain: true }));
+    const doctors = doctorData.map((doctor) => doctor.get({ plain: true }));
 
     // Pass serialized data and session flag into template
-    res.render('doctors', { 
+    // in this case doctors will be an array.
+    res.render('doctorslist', { 
       doctors});
   } catch (err) {
     res.status(500).json(err);
@@ -23,9 +24,9 @@ router.get('/doctor/:id', async (req, res) => {
   try {
     const doctorData = await Doctor.findByPk(req.params.id);
 
-    const post = postData.get({ plain: true });
+    const doctor = doctorData.get({ plain: true });
 
-    res.render('doctor', {...post});
+    res.render('doctorinfo', {...doctor});
   } catch (err) {
     res.status(500).json(err);
   }

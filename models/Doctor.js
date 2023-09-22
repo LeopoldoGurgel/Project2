@@ -11,16 +11,17 @@ Doctor.init(
             primaryKey: true,
             autoIncrement: true,
         },
-       fullName: {
+        fullName: {
             type: DataTypes.STRING,
-            allowNull: false,
+
         },
         preferedName: {
             type: DataTypes.STRING,
-            allowNull: false,
+
         },
         username: {
             type: DataTypes.STRING,
+            isUnique: true,
             allowNull: false,
         },
         password: {
@@ -40,43 +41,32 @@ Doctor.init(
         },
         DOB: {
             type: DataTypes.DATE,
-            isUnique: false,
-            allowNull: false,
             validate: {
                 isDate: true
             }
         },
         address: {
             type: DataTypes.STRING,
-            isUnique: false,
-            allowNull: false,
         },
         phoneNumber: {
-            type: DataTypes.INTEGER,
-            isUnique: false,
-            allowNull: false,
+            type: DataTypes.STRING,
             validate: {
                 isNumeric: true
             }
-        },
-       
-      emergencyContactNumber: {
-            type: DataTypes.INTEGER,
-            isUnique: false,
-            allowNull: false,
+        },       
+        emergencyContactNumber: {
+            type: DataTypes.STRING,
             validate: {
                 isNumeric: true
             }
         },
         emergencyContactFullName: {
             type: DataTypes.STRING,
-            allowNull: false,
         },
-        loginId: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-            isUnique: true,
-        },
+        isActive: {
+            type: DataTypes.BOOLEAN,
+            defaultValue: true
+        }
     },
     {
         hooks: {
