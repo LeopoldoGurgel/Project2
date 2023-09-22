@@ -1,18 +1,18 @@
-<div class="d-flex flex-row justify-content-between">
-    <img src=""> {{!-- patient profile img --}}
-    <p id="general-info">Patient General Info</p>
+<div class="d-flex flex-row">
+    <img src="img/logo-social.png"> {{!-- patient profile img --}}
+    <p class="card" id="general-info">Patient General Info</p>
 </div>
 
 
-<form>
-    <label for="sub-condition">Condition or Concern:</label><br>
+<form class="card col-3">
+    <label for="sub-condition">Condition or Concern:</label>
     <input type="text" id="sub-condition" name="sub-condition"><br>
 
     {{!-- Date. Using basic html date picker. Might need to change to a different picker later --}}
   <label for="sub-date">Appointment Date:</label>
   <input type="date" id="sub-date" name="sub-date"><br>
 
-    <label for="sub-extraInfo">Additional meeting info:</label><br>
+    <label for="sub-extraInfo">Additional meeting info:</label>
     <input type="text" id="sub-extraInfo" name="sub-extraInfo"><br><br>
   <input type="submit" value="Submit">
 </form>

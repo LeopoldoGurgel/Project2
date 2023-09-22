@@ -77,7 +77,16 @@ router.get('/addappt', (req, res) => {
   res.render('addappt')
 });
 
-
-
+//global pages
+// no security
+router.get('/clinicInfo', (req, res) => {
+  res.render('globalNavPages/clinicInfo')
+});
+router.get('/doctorInfo', (req, res) => {
+  res.render('globalNavPages/docInfo')
+});
+router.get('/newPatient', (req, res) => {
+  res.render('globalNavPages/newPatient')
+});
 
 module.exports = router;
