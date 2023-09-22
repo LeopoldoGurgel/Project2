@@ -32,7 +32,7 @@ Appointment.init(
             unique: false,
             references: {
                 model: 'doctor',
-                key: 'id'
+                key: 'user_id'
             }
         },
         patient_id: {
@@ -41,7 +41,7 @@ Appointment.init(
             unique: false,
             references: {
                 model: 'patient',
-                key: 'id'
+                key: 'user_id'
             }
         },
         anamnesis: {

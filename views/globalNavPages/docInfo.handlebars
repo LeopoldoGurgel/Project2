@@ -1,9 +1,13 @@
-<h1>Meet Our Doctors</h1>
 
-<h2>Robert Johnston</h2>
+<div class="d-flex flex-row justify-content-between">
+    {{!-- <img src=""> patient profile img --}}
+    <p id="general-info">Get to know a little more about our doctors!</p>
+</div>
 
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eget odio lorem. Donec ut vulputate justo. Morbi non lectus at magna consequat pharetra auctor quis quam. Curabitur nec augue erat. Maecenas sed purus ornare, vestibulum lacus vitae, sollicitudin diam. Fusce lacinia turpis eu dui scelerisque, eget volutpat nisl placerat. Suspendisse volutpat condimentum eleifend.</p>
-
-<h2>Trish Beaumount</h2>
-
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eget odio lorem. Donec ut vulputate justo. Morbi non lectus at magna consequat pharetra auctor quis quam. Curabitur nec augue erat. Maecenas sed purus ornare, vestibulum lacus vitae, sollicitudin diam. Fusce lacinia turpis eu dui scelerisque, eget volutpat nisl placerat. Suspendisse volutpat condimentum eleifend.</p>
+<ul>
+{{#each doctors as |doctor|}}
+    {{#if isActive}}
+        <li><a href="/doctor/{{id}}">Dr. {{fullName}} ({{preferredName}})</a></li>
+    {{/if}}
+{{/each}}
+</ul>

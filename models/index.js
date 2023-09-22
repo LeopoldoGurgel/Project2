@@ -2,7 +2,8 @@
 // create reations and models
 const Patient = require('./Patient');
 const Doctor = require('./Doctor');
-const Appointment = require('./Appointment')
+const Appointment = require('./Appointment');
+const User = require('./User');
 
 Patient.hasMany(Appointment, {
   foreignKey: 'patient_id',
@@ -22,6 +23,24 @@ Appointment.belongsTo(Doctor, {
   foreignKey: 'doctor_id'
 });
 
+User.hasMany(Patient, {
+  foreignKey: 'user_id',
+  onDelete: "RESTRICT"
+});
+
+Patient.belongsTo('User', {
+  foreignKey: 'user_id'
+});
+
+User.hasMany(Doctor, {
+  foreignKey: 'user_id',
+  onDelete: "RESTRICT"
+});
+
+Doctor.belongsTo('User', {
+  foreignKey: 'user_id'
+});
+
 // lines below throws errors when trying to run seed.js
 
 // Doctor.belongsToMany(Patient, {
@@ -34,5 +53,5 @@ Appointment.belongsTo(Doctor, {
 //   foreignKey: 'patient_id'
 // })
 
-module.exports = { Patient, Doctor, Appointment };
+module.exports = { Patient, Doctor, Appointment, User };
 
