@@ -1,14 +1,15 @@
-const withAuth = (req, res, next) => {
+const authPat = (req, res, next) => {
   // If the user is not logged in, redirect the request to the login route
   if (!req.session.logged_in) {
     res.redirect('/');
   } else {
     next();
   }
+  // check patient id?
 };
 
 // checks if user is a doctor
-const authDr = (req, res, next) => {
+const authDoc = (req, res, next) => {
   if (!req.session.isDoc) {
     res.redirect('/');
   }
@@ -17,5 +18,10 @@ const authDr = (req, res, next) => {
 
 // check for specific patient auth
 
+const authSpecPat = (req, res, next) => {
+  // check if session id is a patient
+  // does req for 
+}
 
-module.exports = {withAuth, authDr};
+
+module.exports = {authPat, authDoc, authSpecPat};
