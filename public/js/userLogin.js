@@ -16,7 +16,10 @@ const loginFormHandler = async (event) => {
         body: JSON.stringify({ username, password }),
         headers: { 'Content-Type': 'application/json' },
       });
-  
+
+      const result = await response.json()
+      console.log(result)
+      window.location.href = result.postLoginURL;
     
     }
   };

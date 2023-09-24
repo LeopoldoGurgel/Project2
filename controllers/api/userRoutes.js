@@ -42,21 +42,23 @@ router.post('/login', async (req, res) => {
       console.log("TESTING 456 ----------------------------")
       return res.status(400).json({ message: "Incorrect username or password. Please try again." })
     }
+//this should be moved to front end
 
-    if (doctorData) {
-      console.log("TESTING 789 ----------------------------")
-      res.render("drSearch")
-    } else {
-      console.log("TESTING AAAAAAAA ----------------------------")
-      res.render("patientInfo")
-    };
+    // if (doctorData) {
+    //   console.log("TESTING 789 ----------------------------")
+    //   res.render("drSearch")
+    // } else {
+    //   console.log("TESTING AAAAAAAA ----------------------------")
+    //   res.render("patientInfo")
+    // };
 
     req.session.save(() => {
-      req.session.userid = userData.id
+      req.session.userid = userData.id;
       req.session.isDoctor = userData.isDoctor;
-      req.session.loggedIn = true
-      // res.json({ user: userData, message: "You are now logged in" })
-    })
+      req.session.loggedIn = true;
+      res.json({ user: userData, postLoginURL: "/drSearch", message: "You are now logged in" });
+      res.status(200);
+    });
 
   } catch (error) {
     console.log(error)
@@ -68,9 +70,6 @@ router.post('/login', async (req, res) => {
 
   //// req.session.isDoctor = true 
 
-  //render the dr search page (if dr)
-
-  //render the patient info page
 
 })
 module.exports = router   
