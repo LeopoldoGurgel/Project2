@@ -30,10 +30,11 @@ router.post('/login', async (req, res) => {
       postLoginURL= "/drSearch";
 
     } else if (patientData) {
+      console.log("got into patientData")
       isValidPassword = patientData.checkPassword(req.body.password);
       userData = patientData;
       isDoctor = false;
-      postLoginURL= "/paTIKGKJHHJFKFKGHFGHK";
+      postLoginURL= "/patientInfo";
     }
  
     // checking that it is NOT valid, and sending an error
