@@ -77,7 +77,6 @@ router.get('/addappt', (req, res) => {
 //global pages
 // no security
 
-
 router.get('/docinfo',  async (req, res) => {
   console.log ("got to doc info")
   try {
@@ -101,5 +100,8 @@ router.get('/clinicInfo', (req, res) => {
   res.render('clinicInfo')
 });
   
-
+router.get('/newPatient', (req, res) => {
+  
+  res.render('newPatient')
+});
 module.exports = router;
