@@ -21,8 +21,9 @@
             </div>
             <div>
             {{!-- global buttons are blue, doc buttons green, and patient buttons yellow--}}
-            <button class="btn-primary" id="/doctorInfo">About the Doctor</button>
-            <button class="btn-primary" id="/clinicInfo">About the Clinic</button>
+    
+           <a href="/docInfo" class="btn-primary" id = "/doctorInfo" role="button">About our Doctors</a>
+            <a href="/clinicInfo"class="btn-primary" id="/clinicInfo" role="button">About the Clinic</a>
             <button class="btn-primary" id="/newPatient">Become a Patient</button>
             {{!-- varriable buttons --}}
             {{#if isDoc}}
