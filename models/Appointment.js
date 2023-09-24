@@ -28,20 +28,16 @@ Appointment.init(
         },
         doctor_id: {
             type: DataTypes.INTEGER,
-            allowNull: false,
-            unique: false,
             references: {
                 model: 'doctor',
-                key: 'user_id'
+                key: 'id'
             }
         },
         patient_id: {
             type: DataTypes.INTEGER,
-            allowNull: false,
-            unique: false,
             references: {
                 model: 'patient',
-                key: 'user_id'
+                key: 'id'
             }
         },
         anamnesis: {

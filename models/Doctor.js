@@ -1,17 +1,19 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
+const bcrypt = require('bcrypt');
 
-class Doctor extends Model { }
+class Doctor extends Model {
+    checkPassword(loginPw){
+        return bcrypt.compareSync(loginPw, this.password);
+    }
+}
 
 Doctor.init(
     {
-        user_id: {
+        id: {
             type: DataTypes.INTEGER,
             primaryKey: true,
-            references: {
-                model: 'user',
-                key: 'id'
-            }
+            autoIncrement:true
         },
         isDoctor: {
             type: DataTypes.BOOLEAN,
@@ -34,7 +36,7 @@ Doctor.init(
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
-                len: [8],
+                len: [4],
             },
         },
         email: {
