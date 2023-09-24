@@ -57,5 +57,13 @@ router.post('/login', async (req, res) => {
     console.log(error)
     res.status(400).json(error)
   }
+});
+
+router.post('/signup', async (req, res) => {
+  console.log(req.body)
+
+  const patient = await Patient.create(req.body);
+res.status(200).json({id:patient.id})
+console.log(patient.id);
 })
 module.exports = router   
