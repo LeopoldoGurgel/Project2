@@ -11,52 +11,44 @@ router.post('/login', async (req, res) => {
       where: {
         username: req.body.username
       }
-    })
+    });
     console.log(doctorData);
 
+    const patientData = await Patient.findOne({
+      where: { username: req.body.username }
+    });
 
-    let patientData;
-    if (doctorData == null) {
 
-      patientData = await Patient.findOne({
-        where: { username: req.body.username }
-      })
-
-      if (patientData == null) { 
-        console.log("TESTING 123 ----------------------------")
-        return res.status(400).json({ message: "Incorrect username or password. Please try again." }) }
-    }
-
-    let userData;
-    let validPassword;
+    // By default, consider it a failed password
+    let isValidPassword=false;
+    let isDoctor=false;
+    let postLoginURL = '/';
     if (doctorData) {
-      validPassword = await doctorData.checkPassword(req.body.password)
+      isValidPassword = doctorData.checkPassword(req.body.password)
       userData = doctorData;
-    } else {
-      validPassword = await patientData.checkPassword(req.body.password);
+      isDoctor = true;
+      postLoginURL= "/drSearch";
+
+    } else if (patientData) {
+      isValidPassword = patientData.checkPassword(req.body.password);
       userData = patientData;
+      isDoctor = false;
+      postLoginURL= "/paTIKGKJHHJFKFKGHFGHK";
     }
-    console.log(userData);
-
-    if (!validPassword) {
+ 
+    // checking that it is NOT valid, and sending an error
+    if (!isValidPassword) {
       console.log("TESTING 456 ----------------------------")
-      return res.status(400).json({ message: "Incorrect username or password. Please try again." })
+      return res.status(401).json({ message: "Incorrect username or password. Please try again." })
     }
-//this should be moved to front end
 
-    // if (doctorData) {
-    //   console.log("TESTING 789 ----------------------------")
-    //   res.render("drSearch")
-    // } else {
-    //   console.log("TESTING AAAAAAAA ----------------------------")
-    //   res.render("patientInfo")
-    // };
+    //if we are here we have a valid password
 
     req.session.save(() => {
-      req.session.userid = userData.id;
-      req.session.isDoctor = userData.isDoctor;
+      req.session.userid =userData.id
+      req.session.isDoctor = isDoctor;
       req.session.loggedIn = true;
-      res.json({ user: userData, postLoginURL: "/drSearch", message: "You are now logged in" });
+      res.json({ user: userData, postLoginURL: postLoginURL, message: "You are now logged in" });
       res.status(200);
     });
 
@@ -64,12 +56,5 @@ router.post('/login', async (req, res) => {
     console.log(error)
     res.status(400).json(error)
   }
-  //validate that the password is associated with that user
-
-  //check what type of user this person is
-
-  //// req.session.isDoctor = true 
-
-
 })
 module.exports = router   
