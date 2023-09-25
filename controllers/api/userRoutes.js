@@ -49,7 +49,7 @@ router.post('/login', async (req, res) => {
       req.session.userid =userData.id
       req.session.isDoctor = isDoctor;
       req.session.loggedIn = true;
-      res.json({ user: userData, postLoginURL: postLoginURL, message: "You are now logged in" });
+      res.json({ user: userData, loggedIn: true, postLoginURL: postLoginURL, message: "You are now logged in" });
       res.status(200);
     });
 

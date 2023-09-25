@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const { Doctor, Patient, User, Appointment } = require('../models');
-const withAuth = require('../utils/auth');
+const {authPat, authDoc} = require('../utils/auth');
 
 
 
@@ -57,21 +57,31 @@ router.get('/', (req, res) => {
 
 // patient Info page
 // accessable only by 1 patient and their doctor
-router.get('/patientInfo', (req, res) => {
+router.get('/patientInfo', authPat, (req, res) => {
   res.render('patientInfo', {
     // isDoc,
+    loggedIn: true, 
+    userData
   });
 });
 
 
-router.get('/drSearch', (req, res) => {
-  res.render('drSearch')
+router.get('/drSearch', authDoc, (req, res) => {
+  res.render('drSearch', {
+    // isDoc,
+    loggedIn: true, 
+    userData
+  })
 });
 
 // add appointment
 // accessable only by the doctor
-router.get('/addappt', (req, res) => {
-  res.render('addappt')
+router.get('/addappt', authDoc, (req, res) => {
+  res.render('addappt', {
+    // isDoc,
+    loggedIn: true, 
+    userData
+  })
 });
 
 //global pages
