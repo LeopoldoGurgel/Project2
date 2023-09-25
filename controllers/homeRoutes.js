@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const { Doctor, Patient, User, Appointment } = require('../models');
-const {authPat, authDoc} = require('../utils/auth');
+const { authPat, authDoc } = require('../utils/auth');
 // const userData = require('express').Router();
 
 
@@ -48,30 +48,41 @@ router.get('/login', (req, res) => {
 // homepage
 // open route, no security
 router.get('/', (req, res) => {
-   try{
-      res.render('homepage')
-    }catch(err){
-      res.status(500).json(err)
-    }
+  try {
+    res.render('homepage')
+  } catch (err) {
+    res.status(500).json(err)
+  }
 });
 
 // patient Info page
 // accessable only by 1 patient and their doctor
 router.get('/patientInfo', authPat, (req, res) => {
-  console.log(req.session.userData, "JD told you so");
+
   res.render('patientInfo', {
     // isDoc,
-    loggedIn: true, 
+    loggedIn: true,
     userData: req.session.userData
   });
 });
 
+//patient info page from dr search page
 
+router.get('/drpatientInfo/:id', authPat, async (req, res) => {
+  const patientData = await Patient.findByPk (req.params.id)
+  const safeData = {...patientData.get({plain:true}), password: ""}      
+     
+  res.render('patientInfo', {
+    // isDoc,
+    loggedIn: true,
+    userData: safeData
+  });
+});
 
-router.get('/drSearch', authDoc, async(req, res) => {
+router.get('/drSearch', authDoc, async (req, res) => {
   res.render('drSearch', {
     // isDoc,
-    loggedIn: true, 
+    loggedIn: true,
     userData: req.session.userData
     // userData
   })
@@ -82,7 +93,7 @@ router.get('/drSearch', authDoc, async(req, res) => {
 router.get('/addappt', authDoc, (req, res) => {
   res.render('addappt', {
     // isDoc,
-    loggedIn: true, 
+    loggedIn: true,
     userData: req.session.userData
   })
 });
@@ -90,18 +101,18 @@ router.get('/addappt', authDoc, (req, res) => {
 //global pages
 // no security
 
-router.get('/doctorInfo',  async (req, res) => {
-    res.render('doctorInfo')
-  });
-  
-  
+router.get('/doctorInfo', async (req, res) => {
+  res.render('doctorInfo')
+});
+
+
 router.get('/clinicInfo', (req, res) => {
-  
+
   res.render('clinicInfo')
 });
-  
+
 router.get('/newPatient', (req, res) => {
-  
+
   res.render('newPatient')
 });
 module.exports = router;
