@@ -35,4 +35,4 @@ async function sendEmail(email, subject, msg) {
 
 // sendEmail(email, 'A subject', 'Your free spam email').catch(console.error);
 
-module.exports = sendEmail();
+module.exports = sendEmail;
