@@ -1,5 +1,6 @@
 const router = require('express').Router();
-const { Doctor, Patient } = require('../../models')
+const { Doctor, Patient } = require('../../models');
+const { truncate } = require('../../models/Patient');
 
 router.post('/login', async (req, res) => {
   //look up the user  - using the id from the body
@@ -25,7 +26,7 @@ router.post('/login', async (req, res) => {
     let postLoginURL = '/';
     if (doctorData) {
       isValidPassword = doctorData.checkPassword(req.body.password);
-      safeData = {...doctorData, password: ""}      
+      safeData = {...doctorData.get({plain: true}), password: ""}      
       userData = safeData;
       console.log(safeData);
       isDoctor = true;
@@ -36,7 +37,7 @@ router.post('/login', async (req, res) => {
     } else if (patientData) {
       console.log("got into patientData")
       isValidPassword = patientData.checkPassword(req.body.password);
-      safeData = {...patientData, password: ""}      
+      safeData = {...patientData.get({plain:true}), password: ""}      
       userData = safeData;
       console.log(safeData);
       isDoctor = false;
@@ -59,18 +60,31 @@ router.post('/login', async (req, res) => {
       res.json({ user: userData, loggedIn: true, postLoginURL: postLoginURL, message: "You are now logged in" });
       res.status(200);
     });
+  
 
   } catch (error) {
     console.log(error)
     res.status(400).json(error)
   }
 });
-
 router.post('/signup', async (req, res) => {
-  console.log(req.body)
+  try {
+    // Check if a patient with the same email already exists
+    const existingPatient = await Patient.findOne({ email: req.body.email });
 
-  const patient = await Patient.create(req.body);
-res.status(200).json({id:patient.id})
-console.log(patient.id);
-})
+    if (existingPatient) {
+      return res.status(400).json({ error: 'Patient already exists' });
+    }
+
+    // If the patient does not exist, create a new one
+    const patient = await Patient.create(req.body);
+    res.status(200).json({ id: patient.id });
+    console.log(patient.id);
+  } catch (error) {
+    // Handle any other errors that may occur
+    console.error(error);
+    res.status(500).json({ error: 'An error occurred' });
+  }
+});
+
 module.exports = router   
