@@ -1,37 +1,37 @@
 const router = require('express').Router();
 const { Doctor, Patient, User, Appointment } = require('../models');
-const withAuth = require('../utils/auth');
+const {authPat, authDoc} = require('../utils/auth');
+// const userData = require('express').Router();
 
 
+// router.get('/doctor', async (req, res) => {
+//   try {
+//     // Get all projects and JOIN with user data
+//     const doctorData = await Doctor.findAll();
 
-router.get('/doctor', async (req, res) => {
-  try {
-    // Get all projects and JOIN with user data
-    const doctorData = await Doctor.findAll();
+//     // Serialize data so the template can read it
+//     const doctors = doctorData.map((doctor) => doctor.get({ plain: true }));
 
-    // Serialize data so the template can read it
-    const doctors = doctorData.map((doctor) => doctor.get({ plain: true }));
+//     // Pass serialized data and session flag into template
+//     // in this case doctors will be an array.
+//     res.render('docinfo', { 
+//       doctors});
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+// });
 
-    // Pass serialized data and session flag into template
-    // in this case doctors will be an array.
-    res.render('docinfo', { 
-      doctors});
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
+// router.get('/doctor/:id', async (req, res) => {
+//   try {
+//     const doctorData = await Doctor.findByPk(req.params.id);
 
-router.get('/doctor/:id', async (req, res) => {
-  try {
-    const doctorData = await Doctor.findByPk(req.params.id);
+//     const doctor = doctorData.get({ plain: true });
 
-    const doctor = doctorData.get({ plain: true });
-
-    res.render('doctorinfo', {...doctor});
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
+//     res.render('doctorinfo', {...doctor});
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+// });
 
 router.get('/login', (req, res) => {
   // If the user is already logged in, redirect the request to another route
@@ -57,43 +57,43 @@ router.get('/', (req, res) => {
 
 // patient Info page
 // accessable only by 1 patient and their doctor
-router.get('/patientInfo', (req, res) => {
+router.get('/patientInfo', authPat, (req, res) => {
+  console.log(req.session.userData, "JD told you so");
   res.render('patientInfo', {
     // isDoc,
+    loggedIn: true, 
+    userData: req.session.userData
   });
 });
 
 
-router.get('/drSearch', (req, res) => {
-  res.render('drSearch')
+
+router.get('/drSearch', authDoc, async(req, res) => {
+  res.render('drSearch', {
+    // isDoc,
+    loggedIn: true, 
+    userData: req.session.userData
+    // userData
+  })
 });
 
 // add appointment
 // accessable only by the doctor
-router.get('/addappt', (req, res) => {
-  res.render('addappt')
+router.get('/addappt', authDoc, (req, res) => {
+  res.render('addappt', {
+    // isDoc,
+    loggedIn: true, 
+    userData: req.session.userData
+  })
 });
 
 //global pages
 // no security
 
-router.get('/docinfo',  async (req, res) => {
-  console.log ("got to doc info")
-  try {
-    const docInforData = await Doctor.findAll( {
-      
-          attributes:['fullName', 'preferedName']
-     
-    })
-  
-  res.render('docInfo', {
-    docInforData,
+router.get('/doctorInfo',  async (req, res) => {
+    res.render('doctorInfo')
   });
   
-} catch (err) {
-  res.status(500).json(err);
-};
-});
   
 router.get('/clinicInfo', (req, res) => {
   

@@ -1,4 +1,21 @@
 .logo {
-    width: 40px;
-    height: 40px;
+    width: 100px;
+    height: 100px;
+}
+
+.drpic {
+    width:300px;
+    height:200px;
+    padding-left: 20px;
+    border: 5px black solid;
+}
+
+.drdesc{
+    width:300px;
+    height:200px;
+    padding-left: 20px;
+}
+
+.clinicdesc{
+    padding: 50px;
 }

@@ -1,6 +1,6 @@
 const authPat = (req, res, next) => {
   // If the user is not logged in, redirect the request to the login route
-  if (!req.session.logged_in) {
+  if (!req.session.loggedIn) {
     res.redirect('/');
   } else {
     next();
@@ -10,7 +10,7 @@ const authPat = (req, res, next) => {
 
 // checks if user is a doctor
 const authDoc = (req, res, next) => {
-  if (!req.session.isDoc) {
+  if (!req.session.isDoctor) {
     res.redirect('/');
   }
   next();

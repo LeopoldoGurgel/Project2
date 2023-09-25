@@ -1,3 +1,4 @@
+
 const navEl = document.getElementById('main-nav');
 const elements = [
     document.getElementById('/'),

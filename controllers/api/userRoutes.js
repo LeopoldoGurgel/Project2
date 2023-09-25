@@ -40,7 +40,7 @@ router.post('/login', async (req, res) => {
     // checking that it is NOT valid, and sending an error
     if (!isValidPassword) {
       console.log("TESTING 456 ----------------------------")
-      return res.status(401).json({ message: "Incorrect username or password. Please try again." })
+      return res.status(401).json({ message: "Incorrect username or password. Please try again." });
     }
 
     //if we are here we have a valid password
@@ -49,7 +49,8 @@ router.post('/login', async (req, res) => {
       req.session.userid =userData.id
       req.session.isDoctor = isDoctor;
       req.session.loggedIn = true;
-      res.json({ user: userData, postLoginURL: postLoginURL, message: "You are now logged in" });
+      req.session.userData = userData;
+      res.json({ user: userData, loggedIn: true, postLoginURL: postLoginURL, message: "You are now logged in" });
       res.status(200);
     });
 
