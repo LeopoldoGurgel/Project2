@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const { Doctor, Patient, User, Appointment } = require('../models');
 const {authPat, authDoc} = require('../utils/auth');
-
+// const userData = require('express').Router();
 
 
 // router.get('/doctor', async (req, res) => {
@@ -58,19 +58,22 @@ router.get('/', (req, res) => {
 // patient Info page
 // accessable only by 1 patient and their doctor
 router.get('/patientInfo', authPat, (req, res) => {
+  console.log(req.session.userData, "JD told you so");
   res.render('patientInfo', {
     // isDoc,
     loggedIn: true, 
-    userData
+    userData: req.session.userData
   });
 });
 
 
-router.get('/drSearch', authDoc, (req, res) => {
+
+router.get('/drSearch', authDoc, async(req, res) => {
   res.render('drSearch', {
     // isDoc,
     loggedIn: true, 
-    userData
+    userData: req.session.userData
+    // userData
   })
 });
 
@@ -80,7 +83,7 @@ router.get('/addappt', authDoc, (req, res) => {
   res.render('addappt', {
     // isDoc,
     loggedIn: true, 
-    userData
+    userData: req.session.userData
   })
 });
 
