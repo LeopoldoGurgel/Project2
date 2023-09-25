@@ -1,24 +1,35 @@
-<div class="d-flex flex-row justify-content-between">
-    <img src=""> {{!-- patient profile img --}}
-    <p id="general-info">Patient General Info</p>
-</div>
-{{#if isDoc}}
+<div class="card">
+  <div class="card-header">
+    {{userData.preferedName}}'s 
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">General Information</h5>
+    <p class="card-text">{{userData.address}}</p>
+    <p class="card-text">{{userData.phonenumber}}</p>
+    <p class="card-text">{{userData.DOB}}</p>
+    <p class="card-text">{{userData.Gender}}</p>
+    {{#if isDoc}}
 <button class="btn-success" id="doc-edit">Edit any field</button>
 {{else}}
 <button class="btn-warning" id="gen-edit">Edit general info</button>
 {{/if}}
-<hr />
+  </div>
+</div>
+
 
 <div class="card" style="width: 18rem;">
   <img class="card-img-top" src="/img/SaraJones.jpg" alt="Card image cap">
   <div class="card-body">
-    <h5 class="card-title">{{fullName}}</h5>
+    <h5 class="card-title">{{userData.fullname}}</h5>
     <p class="card-text">Conditions</p>
   </div>
   <ul class="list-group list-group-flush">
-    <li class="list-group-item">{{condition1}}</li>
-    <li class="list-group-item">{{condition2}}</li>
-    <li class="list-group-item">{{condition3}}</li>
+    <li class="list-group-item">{{userData.condition1}}</li>
+    <li class="list-group-item">{{userData.condition2}}</li>
+    <li class="list-group-item">{{userData.condition3}}</li>
   </ul>
   
+  <ul>
+    {{!-- appointments go here --}}
+  </ul>
 </div>
