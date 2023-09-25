@@ -17,9 +17,19 @@ const loginFormHandler = async (event) => {
         headers: { 'Content-Type': 'application/json' },
       });
 
-      const result = await response.json()
+      if(response.ok) {
+        const result = await response.json()
       console.log(result)
       window.location.href = result.postLoginURL;
+      } else {
+
+        // handles situations in which there are errors on the response. Wrong usernames and passwords, mainly.
+        const errorData = await response.json();
+        const errorMessage = errorData.message;
+        const errorMessageContainer = document.querySelector('#error-message');
+        errorMessageContainer.textContent = errorMessage;
+        errorMessageContainer.style.display ='block';
+      }
     
     }
   };
