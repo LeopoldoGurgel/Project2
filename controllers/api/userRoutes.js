@@ -24,15 +24,21 @@ router.post('/login', async (req, res) => {
     let isDoctor=false;
     let postLoginURL = '/';
     if (doctorData) {
-      isValidPassword = doctorData.checkPassword(req.body.password)
-      userData = doctorData;
+      isValidPassword = doctorData.checkPassword(req.body.password);
+      safeData = {...doctorData, password: ""}      
+      userData = safeData;
+      console.log(safeData);
       isDoctor = true;
       postLoginURL= "/drSearch";
+
+
 
     } else if (patientData) {
       console.log("got into patientData")
       isValidPassword = patientData.checkPassword(req.body.password);
-      userData = patientData;
+      safeData = {...patientData, password: ""}      
+      userData = safeData;
+      console.log(safeData);
       isDoctor = false;
       postLoginURL= "/patientInfo";
     }
