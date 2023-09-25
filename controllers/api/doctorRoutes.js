@@ -22,6 +22,7 @@ router.get('/drSearch', (req, res) => {
           res.json(data.dataValues);
         });
     }
+
   // search by age
   if (req.query.searchFor == '2') {
     Patient.findOne({
@@ -33,6 +34,8 @@ router.get('/drSearch', (req, res) => {
         // res.json(data.dataValues);
       });
   }
+
+  
   // search by appointment time
   if (req.query.searchFor == '3') {
     Appointment.findAll({
