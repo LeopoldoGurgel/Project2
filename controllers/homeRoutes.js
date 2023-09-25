@@ -4,34 +4,34 @@ const withAuth = require('../utils/auth');
 
 
 
-router.get('/doctor', async (req, res) => {
-  try {
-    // Get all projects and JOIN with user data
-    const doctorData = await Doctor.findAll();
+// router.get('/doctor', async (req, res) => {
+//   try {
+//     // Get all projects and JOIN with user data
+//     const doctorData = await Doctor.findAll();
 
-    // Serialize data so the template can read it
-    const doctors = doctorData.map((doctor) => doctor.get({ plain: true }));
+//     // Serialize data so the template can read it
+//     const doctors = doctorData.map((doctor) => doctor.get({ plain: true }));
 
-    // Pass serialized data and session flag into template
-    // in this case doctors will be an array.
-    res.render('docinfo', { 
-      doctors});
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
+//     // Pass serialized data and session flag into template
+//     // in this case doctors will be an array.
+//     res.render('docinfo', { 
+//       doctors});
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+// });
 
-router.get('/doctor/:id', async (req, res) => {
-  try {
-    const doctorData = await Doctor.findByPk(req.params.id);
+// router.get('/doctor/:id', async (req, res) => {
+//   try {
+//     const doctorData = await Doctor.findByPk(req.params.id);
 
-    const doctor = doctorData.get({ plain: true });
+//     const doctor = doctorData.get({ plain: true });
 
-    res.render('doctorinfo', {...doctor});
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
+//     res.render('doctorinfo', {...doctor});
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+// });
 
 router.get('/login', (req, res) => {
   // If the user is already logged in, redirect the request to another route
@@ -77,23 +77,10 @@ router.get('/addappt', (req, res) => {
 //global pages
 // no security
 
-router.get('/docinfo',  async (req, res) => {
-  console.log ("got to doc info")
-  try {
-    const docInforData = await Doctor.findAll( {
-      
-          attributes:['fullName', 'preferedName']
-     
-    })
-  
-  res.render('docInfo', {
-    docInforData,
+router.get('/doctorInfo',  async (req, res) => {
+    res.render('doctorInfo')
   });
   
-} catch (err) {
-  res.status(500).json(err);
-};
-});
   
 router.get('/clinicInfo', (req, res) => {
   

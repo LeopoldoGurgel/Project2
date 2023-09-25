@@ -15,27 +15,27 @@
 <body>
     <header>
         {{!-- global site nav buttons --}}
-        <nav class="row d-flex flex-row justify-content-between m-2">
+        <nav class="row d-flex flex-row justify-content-between m-2" id="main-nav">
             <div>
-            <img class="logo" id="/" src="/public/img/logo-no-background.png" alt="medinfo logo">
+                <img class="logo" id="/" src="/public/img/logo-no-background.png" alt="medinfo logo">
             </div>
             <div>
-            {{!-- global buttons are blue, doc buttons green, and patient buttons yellow--}}
-    
-           <a href="/docInfo" class="btn-primary" id = "/doctorInfo" role="button">About our Doctors</a>
-            <a href="/clinicInfo"class="btn-primary" id="/clinicInfo" role="button">About the Clinic</a>
-            <a href="/newPatient" class="btn-primary" id="/newPatient" role="button">Become a Patient</a>
-            {{!-- varriable buttons --}}
-            {{#if isDoc}}
-            <button class="btn-success" id="/drSearch">Doctor Search</button>
-            <button class="btn-success" id="/addappt">Add Appointment</button>
-            {{/if}}
-            {{#if logged_in}}
+                {{!-- global buttons are blue, doc buttons green, and patient buttons yellow--}}
 
-            <button id="logout">Logout</button>
-            <script src="./js/userLogout.js"></script>
+                <button class="btn-primary" id="/doctorInfo" role="button">About our Doctors</button>
+                <button class="btn-primary" id="/clinicInfo" role="button">About the Clinic</button>
+                <button class="btn-primary" id="/newPatient" role="button">Become a Patient</button>
+                {{!-- varriable buttons --}}
+                {{#if isDoc}}
+                <button class="btn-success" id="/drSearch">Doctor Search</button>
+                <button class="btn-success" id="/addappt">Add Appointment</button>
+                {{/if}}
+                {{#if logged_in}}
 
-            {{/if}}
+                <button id="logout">Logout</button>
+                <script src="./js/userLogout.js"></script>
+
+                {{/if}}
             </div>
         </nav>
         <hr />
@@ -55,7 +55,7 @@
 
     <script src="./js/userLogin.js"></script>
     <script src="./js/userSignUp.js"></script>
-
+    <script src="./js/siteNav.js"></script>
 </body>
 
 </html>
