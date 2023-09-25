@@ -23,7 +23,7 @@ const loginFormHandler = async (event) => {
       window.location.href = result.postLoginURL;
       } else {
 
-        // handles situations in which there are errors on the response. Wrong usernames and passwords, mainly.
+        //handles situations in which there are errors on the response. Wrong usernames and passwords, mainly.
         const errorData = await response.json();
         const errorMessage = errorData.message;
         const errorMessageContainer = document.querySelector('#error-message');
@@ -34,7 +34,7 @@ const loginFormHandler = async (event) => {
     }
   };
   
-  // document
-  //   .querySelector('.login-form')
-  //   .addEventListener('submit', loginFormHandler);
+  document
+    .querySelector('.login-form')
+    .addEventListener('submit', loginFormHandler);
   
