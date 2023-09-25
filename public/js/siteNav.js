@@ -1,3 +1,4 @@
+const navEl = document.getElementById('main-nav');
 const elements = [
     document.getElementById('/'),
     document.getElementById('/doctorInfo'),
@@ -9,8 +10,8 @@ const elements = [
 
 ]
 
-document.addEventListener('click', async (event) => {
-    event.preventDefault()
+navEl.addEventListener('click', async (event) => {
+    event.preventDefault();
     if (elements.includes(event.target)) {
       document.location.replace(event.target.id);
     };
