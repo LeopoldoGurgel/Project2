@@ -1,7 +1,7 @@
 [
     {
         "fullName": "Robert Johnston",
-        "preferredName": "Robert",
+        "preferedName": "Robert",
         "username": "robjohnston234",
         "password": "pass122",
         "email": "rjohnston@dr456.com",
@@ -15,7 +15,7 @@
 
     {
         "fullName": "Trish Beaumount",
-        "preferredName": "Trish",
+        "preferedName": "Trish",
         "phoneName": "Trish",
         "username": "tbeaumount34",
         "password": "4576",

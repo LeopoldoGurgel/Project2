@@ -3,6 +3,7 @@ const { Doctor, Patient, User, Appointment } = require('../models');
 const withAuth = require('../utils/auth');
 
 
+
 router.get('/doctor', async (req, res) => {
   try {
     // Get all projects and JOIN with user data
@@ -57,16 +58,12 @@ router.get('/', (req, res) => {
 // patient Info page
 // accessable only by 1 patient and their doctor
 router.get('/patientInfo', (req, res) => {
-  // if the user is a doctor set true
-  // let isDoc = true;
   res.render('patientInfo', {
     // isDoc,
   });
 });
 
-// dr search page
-// accessable only by the doctor
-// use middleware 'authDr'
+
 router.get('/drSearch', (req, res) => {
   res.render('drSearch')
 });
@@ -79,14 +76,32 @@ router.get('/addappt', (req, res) => {
 
 //global pages
 // no security
-router.get('/clinicInfo', (req, res) => {
-  res.render('globalNavPages/clinicInfo')
-});
-router.get('/doctorInfo', (req, res) => {
-  res.render('globalNavPages/docInfo')
-});
-router.get('/newPatient', (req, res) => {
-  res.render('globalNavPages/newPatient')
-});
 
+router.get('/docinfo',  async (req, res) => {
+  console.log ("got to doc info")
+  try {
+    const docInforData = await Doctor.findAll( {
+      
+          attributes:['fullName', 'preferedName']
+     
+    })
+  
+  res.render('docInfo', {
+    docInforData,
+  });
+  
+} catch (err) {
+  res.status(500).json(err);
+};
+});
+  
+router.get('/clinicInfo', (req, res) => {
+  
+  res.render('clinicInfo')
+});
+  
+router.get('/newPatient', (req, res) => {
+  
+  res.render('newPatient')
+});
 module.exports = router;
