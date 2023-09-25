@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dr. tracker</title>
+    <title>MedInfo</title>
     {{!-- style normalizer, bootstrap, and custom styles --}}
     <link rel="stylesheet" href="/css/jass.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
@@ -17,7 +17,9 @@
         {{!-- global site nav buttons --}}
         <nav class="row d-flex flex-row justify-content-between m-2" id="main-nav">
             <div>
-                <img class="logo" id="/" src="/img/logo-no-background.png" alt="medinfo logo">
+
+                <img class="logo" id="/" src="/img/logo-color.png" alt="medinfo logo">
+
             </div>
             <div>
                 {{!-- global buttons are blue, doc buttons green, and patient buttons yellow--}}
@@ -26,11 +28,11 @@
                 <button class="btn-primary" id="/clinicInfo" role="button">About the Clinic</button>
                 <button class="btn-primary" id="/newPatient" role="button">Become a Patient</button>
                 {{!-- varriable buttons --}}
-                {{#if isDoc}}
+                {{#if isDoctor}}
                 <button class="btn-success" id="/drSearch">Doctor Search</button>
                 <button class="btn-success" id="/addappt">Add Appointment</button>
                 {{/if}}
-                {{#if logged_in}}
+                {{#if loggedIn}}
 
                 <button id="logout">Logout</button>
                 <script src="./js/userLogout.js"></script>
