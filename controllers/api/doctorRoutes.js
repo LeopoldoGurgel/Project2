@@ -27,30 +27,31 @@ router.get('/drSearch', (req, res) => {
   if (req.query.searchFor == '2') {
     Patient.findOne({
       where: {
-        Age: req.query.text,
+        age: req.query.text,
       }})
       .then((data) => {
-        console.log(data)
-        // res.json(data.dataValues);
+        // console.log(data)
+        res.json(data.dataValues);
       });
   }
 
   
   // search by appointment time
   if (req.query.searchFor == '3') {
-    Appointment.findAll({
+    Appointment.findOne({
       where: {
         appointmentTime: req.query.text,
       }})
       .then((data) => {
         // data is from appointment
         // return patient data not appointment data
+        console.log(data)
       Patient.findOne({
         where: {
-          fullName: req.query.text,
+          id: data.dataValues.patient_id,
         }})
-        .then((data) => {
-          res.json(data.dataValues);
+        .then((response) => {
+          res.json(response.dataValues);
         });
       });
   }
