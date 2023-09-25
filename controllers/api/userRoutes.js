@@ -1,5 +1,6 @@
 const router = require('express').Router();
-const { Doctor, Patient } = require('../../models')
+const { Doctor, Patient } = require('../../models');
+const { truncate } = require('../../models/Patient');
 
 router.post('/login', async (req, res) => {
   //look up the user  - using the id from the body
@@ -25,7 +26,7 @@ router.post('/login', async (req, res) => {
     let postLoginURL = '/';
     if (doctorData) {
       isValidPassword = doctorData.checkPassword(req.body.password);
-      safeData = {...doctorData, password: ""}      
+      safeData = {...doctorData.get({plain: true}), password: ""}      
       userData = safeData;
       console.log(safeData);
       isDoctor = true;
@@ -36,7 +37,7 @@ router.post('/login', async (req, res) => {
     } else if (patientData) {
       console.log("got into patientData")
       isValidPassword = patientData.checkPassword(req.body.password);
-      safeData = {...patientData, password: ""}      
+      safeData = {...patientData.get({plain:true}), password: ""}      
       userData = safeData;
       console.log(safeData);
       isDoctor = false;
@@ -59,6 +60,7 @@ router.post('/login', async (req, res) => {
       res.json({ user: userData, loggedIn: true, postLoginURL: postLoginURL, message: "You are now logged in" });
       res.status(200);
     });
+  
 
   } catch (error) {
     console.log(error)
