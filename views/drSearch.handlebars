@@ -1,18 +1,48 @@
+{{!-- local search buttons --}}
+{{!-- <nav class="d-flex flex-row justify-content-end">
+    <button id="search-name">Search by Name</button>
+    <button id="search-appt">Search by Appointment</button>
+    <button id="search-age">Search by Age</button>
+    <button id="search-condition">Search by Condition</button>
+    <button id="search-clinic">Search by Clinic/Zoom</button>
+</nav> --}}
 
-        {{!-- local search buttons --}} 
-    <nav class="d-flex flex-row justify-content-end">
-        <button id="search-name">Search by Name</button>
-        <button id="search-appt">Search by Appointment</button>
-        <button id="search-age">Search by Age</button>
-        <button id="search-condition">Search by Condition</button>
-        <button id="search-clinic">Search by Clinic/Zoom</button>
-    </nav>
+{{!-- Form with drop down and text field and submit button --}}
+
+<form action='' id="form-sub">
+    <select class="form-select" id="select-dropdown" aria-label="Default select example">
+        <option selected>Search By</option>
+        <option value="1">Full Name</option>
+        <option value="2">Age</option>
+        <option value="3">Appointment Time</option>
+    </select>
+    <label for="select-text">Search Criteria:</label>
+    <input type="text" id="select-text" name="select-text">
+    <input type="submit" id="sub-btn" value="Search">
+</form>
+    <p>Note: seeded data only has values for '3pm', '4pm', or '5pm' appointment time</p>
 
 {{!-- Add search results here. A template search result is given --}}
 <ul id="search-results">
-    <li  class="d-flex flex-row justify-content-between">
+    <li class="d-flex flex-row justify-content-between">
         <img src="" alt="patient image">
         <p>Info searched for</p>
-        <button>More Info</button>  {{!-- Add a data-index attribute to track the different buttons --}}
+        <button>More Info</button> {{!-- Add a data-index attribute to track the different buttons --}}
     </li>
 </ul>
+
+
+<script src="./js/drSearch.js"></script>
+
+
+{{!-- <div class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown"
+        aria-haspopup="true" aria-expanded="false">
+        Search By
+    </button>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+        <button class="dropdown-item" id="select-name" type="button">Name</button>
+        <button class="dropdown-item" id="select-age" type="button">Age</button>
+        <button class="dropdown-item" id="select-appt" type="button">Appointment Time</button>
+    </div>
+</div> --}}
