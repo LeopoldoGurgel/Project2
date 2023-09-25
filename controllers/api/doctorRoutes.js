@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const {authDoc, authPat, authSpecPat} = require('./../../utils/auth');
-const sendEmail = require('./../../utils/emailer');;
+const sendEmail = require('./../../utils/emailer');
 const { Appointment, Patient } = require('./../../models');
 // '/api/doctor'
 
@@ -46,12 +46,12 @@ router.put('/:id', (req, res) => {
       id: req.params.id,
     },
   })
-}) 
 .then((data) => {
   res.json(data);
 })
 .catch((err) => {
   res.status(500).json(err);
+})
 });
 
 
