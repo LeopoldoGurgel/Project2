@@ -8,8 +8,26 @@ Project 2 for team: Jan Dunk, Leo Gurgel, and Max Walent
 
 ## Description
 
-A tracker for medical information to be used by a clinic. Has 3 authorization levels: not logged in, logged in as patient, and logged in as doctor. The levels allow different access to pages across the site. Patients are capable of seeing their indivial information including examination notes and future/past appointments. Doctors are able to view the information for all patients and search the patient database.
+A tracker for medical information to be used by a clinic. Has 3 authorization levels: not logged in, logged in as patient, and logged in as doctor. The levels allow different access to pages across the site. Patients are capable of seeing their indivial information including examination notes and future/past appointments. Doctors are able to view the information for all patients and search the patient database.  
 
+## TABLE OF CONTENTS
+* [Installation](#installation)
+* [Contributing](#contribution)
+* [License](#license)
+
+## INSTALLATION
+1 - Make sure you have Insomnia and Node.js preinstalled on your machine.  
+2 - Clone this application repository into a local folder in your computer.  
+3 - On your command line, navigate to this application folder, and run the command <npm install> to install the required NPM packages. 
+
+## CONTRIBUTING
+You are welcome to help if you have any ideas to improve our project! If you want to do so, just follow these steps:
+
+1 - Fork the repository.  
+2 - Create a new branch for you new feature or bug fix.  
+3 - Make the changes you have in mind.  
+4 - Commit your changes and push them to your fork.  
+5 - Open a pull request detailing the changes you've made.
 
 <img src='./public/img/ss1.JPG' alt='Image of the website'/><br/>
 <img src='./public/img/ss2.JPG' alt='Image of the website'/><br/>
