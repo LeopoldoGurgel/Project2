@@ -66,22 +66,50 @@ router.get('/drSearch', (req, res) => {
 // Add appointment (POST)
 router.post('/appointment', authDoc, async (req, res) => {
   try {
-    const appt = await Appointment.create(req.body)
+    req.body.email;
+    req.body.msg
+    const appt = {
+      appointmentDate: req.body.appointmentDate,
+      appointmentTime: req.body.appointmentTime,
+      doctor_id: 1,
+      patient_id: 1,
+      reason: req.body.concern,
+      anamnesis: "Patient complains about persistent backpain started about a year ago. It is primarily located on lombar region and it gets works after long and hard days of work as a carpenter. The patient deescribes it as very intense (8 out of 10. There is no history of recent trauma.",
+      physical_exam: "Nothing to keep note about vital signs, cardiorrespiratory, digestive or endocrine systems. Lasegue test is positive on the right.",
+      initial_diagnosis: "lumbar hernia",
+      tests_needed: "MRI",
+      prescription: "Ibuprofen 400mg twice a day for 5 days.",
+      orientation: "10 days of rest from work. Avoid lifting heavy weights.",
+      next_appointment: "2023-12-15"
+
+    }
+    await Appointment.create(appt)
       .then((data) => {
-        // send an email that an appointment was created
-        // get email of patient using patient id
-        Patient.findOne({
-          where: {
-            id: req.body.patient_id
-          }
-        }) .then ((patData) => {
-          // format the email msg
-          let msg = `You have an appointment schedueled for ${data.appointmentDate} at ${data.appointmentTime} for ${data.reason}.`;
-          // send the email
-          sendEmail(patData.email, 'Appointment', msg)
-        })
-        res.json(data);
-      })
+        //     // format the email msg
+            let msg = `You have an appointment schedueled for ${req.body.appointmentDate} at ${req.body.appointmentTime} for ${req.body.concern}.`;
+        //     // send the email
+            sendEmail(req.body.email, 'Appointment', msg)
+            res.json(data);
+      });
+
+      // for sending an email to the patient's email
+      // .then((data) => {
+      //   // send an email that an appointment was created
+      //   // get email of patient using patient id
+      //   Patient.findOne({
+      //     where: {
+      //       id: req.body.patient_id
+      //     }
+      //   }) .then ((patData) => {
+      //     // format the email msg
+      //     let msg = `You have an appointment schedueled for ${data.appointmentDate} at ${data.appointmentTime} for ${data.reason}.`;
+      //     // send the email
+      //     sendEmail(patData.email, 'Appointment', msg)
+      //   })
+      //   res.json(data);
+      // })
+
+
   } catch (err) {
     res.status(500).json(err);
   }
