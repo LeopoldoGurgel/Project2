@@ -29,6 +29,12 @@ You are welcome to help if you have any ideas to improve our project! If you wan
 4 - Commit your changes and push them to your fork.  
 5 - Open a pull request detailing the changes you've made.
 
+<img src='./public/img/ss1.JPG' alt='Image of the website'/><br/>
+<img src='./public/img/ss2.JPG' alt='Image of the website'/><br/>
+<img src='./public/img/ss3.JPG' alt='Image of the website'/><br/>
+<img src='./public/img/ss4.JPG' alt='Image of the website'/><br/>
+<img src='./public/img/ss5.JPG' alt='Image of the website'/><br/>
+
 ## License
 
 MIT License
