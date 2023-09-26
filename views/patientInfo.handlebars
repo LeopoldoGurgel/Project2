@@ -9,10 +9,10 @@
     <p class="card-text">{{userData.gender}}</p>
     <p class="card-text">{{userData.age}}</p>
     {{#if isDoc}}
-<button class="btn-success" id="doc-edit">Edit any field</button>
+{{!-- <button class="btn-success" id="doc-edit">Edit any field</button> --}}
 <button class="btn-success" id="/addappt" data-patientID= "{{userData.id}}">Add Appointment</button>
 {{else}}
-<button class="btn-warning" id="gen-edit">Edit general info</button>
+{{!-- <button class="btn-warning" id="gen-edit">Edit general info</button> --}}
 {{/if}}
   </div>
 </div>
