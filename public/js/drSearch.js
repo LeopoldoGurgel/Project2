@@ -34,8 +34,9 @@ subEl.addEventListener('submit', async (event) => {
 
                 window.location.href = patientURL
             })
+            li.append(btn)
             resultsEl.append(li)
-            resultsEl.lastChild.appendChild(btn);
+            //resultsEl.lastChild.appendChild(btn);
             // }
 
         });
