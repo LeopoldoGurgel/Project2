@@ -15,8 +15,8 @@
 <body>
     <header>
         {{!-- global site nav buttons --}}
-        <nav class="row d-flex flex-row justify-content-between m-2" id="main-nav">
-        <nav class="row d-flex flex-row justify-content-between m-2" id="main-nav">
+        <nav class="row d-flex flex-row justify-content-right m-2" id="main-nav">
+        
             <div>
 
                 <img class="logo" id="/" src="/img/logo-color.png" alt="medinfo logo">
@@ -28,15 +28,15 @@
                 <button class="btn-primary" id="/doctorInfo" role="button">About our Doctors</button>
                 <button class="btn-primary" id="/clinicInfo" role="button">About the Clinic</button>
                 <button class="btn-primary" id="/newPatient" role="button">Become a Patient</button>
-                {{!-- varriable buttons --}}
+                {{!-- variable buttons --}}
                 {{#if userData.isDoctor}}
                 <button class="btn-success" id="/drSearch">Doctor Search</button>
-                <button class="btn-success" id="/addappt">Add Appointment</button>
+                
                 {{/if}}
                 {{#if loggedIn}}
 
                 <button id="logout">Logout</button>
-                <script src="./js/userLogout.js"></script>
+                <script src="/js/userLogout.js"></script>
 
                 {{/if}}
             </div>
@@ -58,9 +58,8 @@
         crossorigin="anonymous"></script>
 
 
-    <script src="./js/userLogin.js"></script>
-    <script src="./js/userSignUp.js"></script>
-    <script src="./js/siteNav.js"></script>
+   
+    <script src="/js/siteNav.js"></script>
 </body>
 
 </html>

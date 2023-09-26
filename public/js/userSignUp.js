@@ -18,11 +18,15 @@ const signUpFormHandler = async (event) => {
         body: JSON.stringify({ username, password, email}),
         headers: { 'Content-Type': 'application/json' },
       });
-
       const result = await response.json()
       console.log(result)
+
+      if(response.ok) {
       
-    
+      alert("You are now signedup! Please log in.")
+    }else {
+alert("An error has occured please contact the clinic")
+    }
     }
   };
   console.log("setting up sign up handler")

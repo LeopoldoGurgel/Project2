@@ -70,8 +70,10 @@ router.post('/login', async (req, res) => {
 router.post('/signup', async (req, res) => {
   try {
     // Check if a patient with the same email already exists
-    const existingPatient = await Patient.findOne({ email: req.body.email });
-
+    console.log ( req.body.email)
+    const existingPatient = await Patient.findOne({where:{ email: req.body.email }});
+console.log("about to log existing patient")
+    console.log(existingPatient)
     if (existingPatient) {
       return res.status(400).json({ error: 'Patient already exists' });
     }
