@@ -4,18 +4,46 @@
 }
 
 .drpic {
-    width:300px;
-    height:200px;
+    width: 300px;
+    height: 200px;
     padding-left: 20px;
     border: 5px black solid;
 }
 
-.drdesc{
-    width:300px;
-    height:200px;
+.drdesc {
+    width: 300px;
+    height: 200px;
     padding-left: 20px;
 }
 
-.clinicdesc{
+.clinicdesc {
+    padding: 50px;
+}
+
+.btn-primary {
+    background-color: black;
+    color: whitesmoke;
+    border-color: black;
+}
+
+.btn-primary:hover {
+    background-color: red;
+    color: whitesmoke;
+    border-color: black;
+}
+
+.btn-warning {
+    background-color: black;
+    color: whitesmoke;
+    border-color: black;
+}
+
+.btn-warning:hover {
+    background-color: red;
+    color: whitesmoke;
+    border-color: black;
+}
+
+.main {
     padding: 50px;
 }

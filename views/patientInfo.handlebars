@@ -10,6 +10,7 @@
     <p class="card-text">{{userData.age}}</p>
     {{#if isDoc}}
 <button class="btn-success" id="doc-edit">Edit any field</button>
+<button class="btn-success" id="/addappt" data-patientID= "{{userData.id}}">Add Appointment</button>
 {{else}}
 <button class="btn-warning" id="gen-edit">Edit general info</button>
 {{/if}}
@@ -20,7 +21,7 @@
 <div class="card" style="width: 18rem;">
   <img class="card-img-top" src="/img/SaraJones.jpg" alt="Card image cap">
   <div class="card-body">
-    <h5 class="card-title">{{userData.fullname}}</h5>
+    <h5 class="card-title">{{userData.fullName}}</h5>
     <p class="card-text">Conditions</p>
   </div>
   <ul class="list-group list-group-flush">
@@ -33,3 +34,7 @@
     {{!-- appointments go here --}}
   </ul>
 </div>
+
+{{#if isDoc}}
+<script src="/js/drPatientInfo.js"></script>
+{{/if}}
