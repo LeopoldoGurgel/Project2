@@ -66,8 +66,7 @@ router.get('/drSearch', (req, res) => {
 // Add appointment (POST)
 router.post('/appointment', authDoc, async (req, res) => {
   try {
-    req.body.email;
-    req.body.msg
+    console.log(req.body)
     const appt = {
       appointmentDate: req.body.appointmentDate,
       appointmentTime: req.body.appointmentTime,
@@ -83,6 +82,7 @@ router.post('/appointment', authDoc, async (req, res) => {
       next_appointment: "2023-12-15"
 
     }
+    console.log('in post route')
     await Appointment.create(appt)
       .then((data) => {
         //     // format the email msg
@@ -111,6 +111,7 @@ router.post('/appointment', authDoc, async (req, res) => {
 
 
   } catch (err) {
+    console.log(err)
     res.status(500).json(err);
   }
 });

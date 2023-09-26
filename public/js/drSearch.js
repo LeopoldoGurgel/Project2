@@ -43,5 +43,3 @@ subEl.addEventListener('submit', async (event) => {
 
 });
 
-// add event listener to more info button
-// if clicked renders patient info page for patient
