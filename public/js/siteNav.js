@@ -6,7 +6,6 @@ const elements = [
     document.getElementById('/clinicInfo'),
     document.getElementById('/newPatient'),
     document.getElementById('/drSearch'),
-    document.getElementById('/addappt'),
     document.getElementById('/patientInfo'),
 
 ]

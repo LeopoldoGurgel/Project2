@@ -69,11 +69,17 @@ router.get('/patientInfo', authPat, (req, res) => {
 //patient info page from dr search page
 
 router.get('/drpatientInfo/:id', authPat, async (req, res) => {
+  console.log("first line dr / patient info")
   const patientData = await Patient.findByPk (req.params.id)
   const safeData = {...patientData.get({plain:true}), password: ""}      
-     
+    if (!req.session.userData.isDoctor) {
+      console.log("was not a doctor")
+      res.status(404)
+      return
+    }
+    console.log ("about to render")
   res.render('patientInfo', {
-    // isDoc,
+    isDoc: true,
     loggedIn: true,
     userData: safeData
   });
@@ -90,11 +96,19 @@ router.get('/drSearch', authDoc, async (req, res) => {
 
 // add appointment
 // accessable only by the doctor
-router.get('/addappt', authDoc, (req, res) => {
+router.get('/addappt/:id', authDoc, async (req, res) => {
+  const patientData = await Patient.findByPk (req.params.id)
+  const safeData = {...patientData.get({plain:true}), password: ""}      
+    if (!req.session.userData.isDoctor) {
+      console.log("was not a doctor")
+      res.status(404)
+      return
+    }
+    console.log ("about to render")
   res.render('addappt', {
-    // isDoc,
+    isDoc: true,
     loggedIn: true,
-    userData: req.session.userData
+    userData: safeData
   })
 });
 
