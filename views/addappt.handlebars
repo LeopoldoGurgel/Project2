@@ -4,15 +4,20 @@
 </div>
 
 
-<form class="card col-3">
+<form class="card col-3" id="appt-form">
     <label for="sub-condition">Condition or Concern:</label>
     <input type="text" id="sub-condition" name="sub-condition"><br>
 
     {{!-- Date. Using basic html date picker. Might need to change to a different picker later --}}
   <label for="sub-date">Appointment Date:</label>
   <input type="date" id="sub-date" name="sub-date"><br>
-
-    <label for="sub-extraInfo">Additional meeting info:</label>
-    <input type="text" id="sub-extraInfo" name="sub-extraInfo"><br><br>
+  
+    <label for="sub-apptTime">Appointment Time:</label>
+    <input type="text" id="sub-apptTime" name="sub-apptTime"><br>
+    
+    <label for="sub-email">Email:</label>
+    <input type="text" id="sub-email" name="sub-email"><br><br>
   <input type="submit" value="Submit">
 </form>
+
+<script src="/js/appointment.js"></script>
