@@ -10,6 +10,18 @@ Project 2 for team: Jan Dunk, Leo Gurgel, and Max Walent
 
 A tracker for medical information to be used by a clinic. Has 3 authorization levels: not logged in, logged in as patient, and logged in as doctor. The levels allow different access to pages across the site. Patients are capable of seeing their indivial information including examination notes and future/past appointments. Doctors are able to view the information for all patients and search the patient database.  
 
+For searching patients you can use 'sara jones'
+
+## LOGIN DETAILS
+
+Doctor
+User: robjohnston234
+Pass: pass122
+
+Patient
+User: sjones123
+Pass: 1234
+
 ## TABLE OF CONTENTS
 * [Installation](#installation)
 * [Contributing](#contribution)
